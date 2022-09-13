@@ -15,9 +15,3 @@ git clone https://github.com/zrut747/dotfiles.git ~/.dotfiles
 ```bash
 zsh ~/.dotfiles/bootstrap.sh
 ```
-
-3. 激活zsh环境
-
-```bash
-source ~/.zshrc
-```
