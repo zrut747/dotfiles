@@ -13,7 +13,7 @@ git clone https://github.com/zrut747/dotfiles.git ~/.dotfiles
 2. 执行bootstrap脚本
 
 ```bash
-sh ~/.dotfiles/bootstrap.sh
+zsh ~/.dotfiles/bootstrap.sh
 ```
 
 3. 激活zsh环境
