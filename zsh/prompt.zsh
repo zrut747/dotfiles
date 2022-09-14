@@ -14,7 +14,7 @@ function precmd() {
 local ret_status="%(?,%{$terminfo[bold]$fg[green]%}➜ ,%{$terminfo[bold]$fg[red]%}➜ "
 
 PROMPT="%(#,%{$fg[red]%}%n,%{$fg[cyan]%}%n) \
-%{$reset_color%}at %{$fg[green]%}%M \
+%{$reset_color%}at %{$fg[yellow]%}%M \
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[green]%}%~%{$reset_color%}
 ${ret_status}%{$reset_color%} \
