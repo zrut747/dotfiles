@@ -1,44 +1,11 @@
 DOTDIR=~/.dotfiles
 
+# init history
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
 
-# declare a simple plugin-load function
-function plugin-load() {
-  local repo plugin_name plugin_dir initfile initfiles
-  ZPLUGINDIR=~/.config/zsh/plugins
-  for repo in $@; do
-    plugin_name=${repo:t}
-    plugin_dir=$ZPLUGINDIR/$plugin_name
-    initfile=$plugin_dir/$plugin_name.plugin.zsh
-    if [[ ! -d $plugin_dir ]]; then
-      echo "Cloning $repo"
-      git clone -q --depth 1 --recursive --shallow-submodules https://kgithub.com/$repo $plugin_dir
-    fi
-    if [[ ! -e $initfile ]]; then
-      initfiles=($plugin_dir/*.plugin.{z,}sh(N) $plugin_dir/*.{z,}sh{-theme,}(N))
-      [[ ${#initfiles[@]} -gt 0 ]] || { echo >&2 "Plugin has no init file '$repo'." && continue }
-      ln -s "${initfiles[1]}" "$initfile"
-    fi
-    fpath+=$plugin_dir
-    (( $+functions[zsh-defer] )) && zsh-defer . $initfile || . $initfile
-  done
-}
-
-# make a github repo plugins list
-plugins=(
-  rupa/z
-  jeffreytse/zsh-vi-mode
-  zsh-users/zsh-autosuggestions
-  zdharma-continuum/fast-syntax-highlighting
-)
-plugin-load $plugins
-
-# init aliases
-source $DOTDIR/aliases/aliases
-
-# init starship
-export STARSHIP_CONFIG=$DOTDIR/starship/starship.toml
-eval "$(starship init zsh)"
+source $DOTDIR/zsh/plugin.zsh
+source $DOTDIR/zsh/prompt.zsh
+source $DOTDIR/aliases/aliases.sh
