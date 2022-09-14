@@ -6,6 +6,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
 
+# print prompt with colors
+autoload -U colors && colors
+
 source $DOTDIR/zsh/plugin.zsh
-source $DOTDIR/zsh/prompt.zsh
 source $DOTDIR/aliases/aliases.sh

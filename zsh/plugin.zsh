@@ -22,6 +22,7 @@ function plugin-load() {
 
 # make a github repo plugins list
 plugins=(
+  zrut747/alp
   rupa/z
   jeffreytse/zsh-vi-mode
 
