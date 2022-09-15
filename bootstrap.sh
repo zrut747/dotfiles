@@ -3,7 +3,7 @@
 DOTDIR=~/.dotfiles
 
 # source init.sh
-touch .zshrc
+touch ~/.zshrc
 sed -i "\:$DOTDIR/zsh/zshrc:d" ~/.zshrc
 echo "source $DOTDIR/zsh/zshrc" >> ~/.zshrc
 source ~/.zshrc
