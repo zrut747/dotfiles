@@ -1,10 +1,9 @@
 # where should we download your Zsh plugins?
-#ZPLUGINDIR=$ZDOTDIR/plugins
+ZPLUGINDIR=$HOME/.config/zsh/plugins
 
 # declare a simple plugin-load function
 function plugin-load {
   local repo plugdir initfile
-  ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
   for repo in $@; do
     plugdir=$ZPLUGINDIR/${repo:t}
     initfile=$plugdir/${repo:t}.plugin.zsh
