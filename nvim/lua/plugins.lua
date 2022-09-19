@@ -2,9 +2,12 @@ return require('packer').startup({
   function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    -- nord theme
-    use 'shaunsingh/nord.nvim'
-    -- nvim-tree (新增)
+    -- gruvbox theme
+    use {
+        "ellisonleao/gruvbox.nvim",
+        requires = {"rktjmp/lush.nvim"}
+    }
+    -- nvim-tree
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons'

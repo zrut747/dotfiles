@@ -9,11 +9,13 @@ lua require('plugins')
 
 " 设置主题
 set background=dark
-colorscheme nord
+colorscheme gruvbox
 
 " 插件配置
 lua require('plugin-config/nvim-tree')
 lua require('plugin-config/bufferline')
 lua require('plugin-config/nvim-treesitter')
 lua require('plugin-config/mason')
-lua require('plugin-config/mason-lspconfig')
+
+" lsp配置
+lua require('lsp/setup')
