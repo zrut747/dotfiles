@@ -24,11 +24,11 @@ function plugin-load {
 # make a github repo plugins list
 plugins=(
   zrut747/alp
+  jeffreytse/zsh-vi-mode
 
   # load these at hypersonic load speeds with zsh-defer
   romkatv/zsh-defer
   rupa/z
-  jeffreytse/zsh-vi-mode
   peterhurford/up.zsh
   zsh-users/zsh-autosuggestions
   zdharma-continuum/fast-syntax-highlighting
