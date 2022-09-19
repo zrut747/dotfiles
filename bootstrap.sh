@@ -1,6 +1,7 @@
 #! /usr/bin/env zsh
 
 DOTDIR=~/.dotfiles
+DOT_GITHUB_MIRROR=${DOT_GITHUB_MIRROR:-"https://github.com"}
 
 # source init.sh
 touch ~/.zshrc
@@ -19,5 +20,5 @@ sed -i "\:$DOTDIR/tmux/tmux.conf:d" ~/.tmux.conf
 echo "source-file $DOTDIR/tmux/tmux.conf" >> ~/.tmux.conf
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   echo "Cloning tpm..."
-  git clone -q --depth 1 https://kgithub.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  git clone -q --depth 1 $DOT_GITHUB_MIRROR/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi

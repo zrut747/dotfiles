@@ -1,5 +1,6 @@
+local github_mirror = os.getenv("DOT_GITHUB_MIRROR") or "https://github.com"
 for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
-  config.install_info.url = config.install_info.url:gsub("https://github.com/", "https://kgithub.com/")
+  config.install_info.url = config.install_info.url:gsub("https://github.com", github_mirror)
 end
 require'nvim-treesitter.configs'.setup {
   -- 安装 language parser

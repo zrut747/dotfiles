@@ -1,4 +1,5 @@
-return require('packer').startup({
+local github_mirror = "https://hub.nuaa.cf/"
+require('packer').startup({
   function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -33,7 +34,9 @@ return require('packer').startup({
     max_jobs = 16,
     -- 自定义源
     git = {
-      default_url_format = "https://kgithub.com/%s"
+      -- default_url_format = "https://kgithub.com/%s"
+      -- default_url_format = "https://hub.nuaa.cf/%s"
+      default_url_format = github_mirror.."/%s"
     },
   },
 })

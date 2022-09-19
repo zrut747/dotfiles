@@ -1,5 +1,6 @@
 # where should we download your Zsh plugins?
 ZPLUGINDIR=$HOME/.config/zsh/plugins
+DOT_GITHUB_MIRROR=${DOT_GITHUB_MIRROR:-"https://github.com"}
 
 # declare a simple plugin-load function
 function plugin-load {
@@ -9,7 +10,7 @@ function plugin-load {
     initfile=$plugdir/${repo:t}.plugin.zsh
     if [[ ! -d $plugdir ]]; then
       echo "Cloning $repo..."
-      git clone -q --depth 1 --recursive --shallow-submodules https://kgithub.com/$repo $plugdir
+      git clone -q --depth 1 --recursive --shallow-submodules $DOT_GITHUB_MIRROR/$repo $plugdir
     fi
     if [[ ! -e $initfile ]]; then
       local -a initfiles=($plugdir/*.plugin.{z,}sh(N) $plugdir/*.{z,}sh{-theme,}(N))
