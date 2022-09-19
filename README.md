@@ -22,7 +22,7 @@ zsh ~/.dotfiles/bootstrap.sh
 
 ### DOT_GITHUB_MIRROR
 
-修改下载插件时使用的 Github 地址。(nvim 的 packer 插件无法读取 .zshrc 里的环境变量，需要单独修改）
+修改下载插件时使用的 Github 地址。(nvim 的插件下载无法读取到 .zshrc 里的环境变量，需要单独修改）
 
 
 ```bash

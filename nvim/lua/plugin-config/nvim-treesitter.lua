@@ -1,4 +1,5 @@
-local github_mirror = os.getenv("DOT_GITHUB_MIRROR") or "https://github.com"
+local github_mirror = "https://kgithub.com"
+-- local github_mirror = "https://hub.nuaa.cf"
 for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
   config.install_info.url = config.install_info.url:gsub("https://github.com", github_mirror)
 end
