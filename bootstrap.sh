@@ -18,6 +18,6 @@ touch ~/.tmux.conf
 sed -i "\:$DOTDIR/tmux/tmux.conf:d" ~/.tmux.conf
 echo "source-file $DOTDIR/tmux/tmux.conf" >> ~/.tmux.conf
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-  echo "Cloning tpm"
+  echo "Cloning tpm..."
   git clone -q --depth 1 https://kgithub.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
