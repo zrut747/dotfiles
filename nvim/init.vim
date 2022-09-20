@@ -1,6 +1,6 @@
 " 基础设置
 lua require('basic')
-" 快捷键映射
+" " 快捷键映射
 lua require('keybindings')
 " Packer插件管理
 lua require('plugins')
@@ -15,6 +15,7 @@ lua require('plugin-config/lualine')
 lua require('plugin-config/alpha-nvim')
 lua require('plugin-config/nvim-treesitter')
 lua require('plugin-config/mason')
+lua require('plugin-config/comment')
 " lsp配置
 lua require('lsp/setup')
 lua require('lsp/cmp')

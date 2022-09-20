@@ -58,6 +58,9 @@ require('packer').startup({
     use("tami5/lspsaga.nvim")
     -- Lua 增强
     use("folke/lua-dev.nvim")
+    ----------------------------------------------
+    ---- Comment
+    use("numToStr/Comment.nvim")
   end,
   config = {
     -- 最大并发数
