@@ -33,6 +33,7 @@ require('packer').startup({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
     }
+    --------------------- LSP --------------------
     -- Lsp配置
     use {
       'williamboman/mason.nvim',
@@ -55,6 +56,8 @@ require('packer').startup({
     -- UI 增强
     use("onsails/lspkind-nvim")
     use("tami5/lspsaga.nvim")
+    -- Lua 增强
+    use("folke/lua-dev.nvim")
   end,
   config = {
     -- 最大并发数
