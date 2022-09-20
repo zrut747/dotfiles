@@ -17,16 +17,44 @@ require('packer').startup({
       'akinsho/bufferline.nvim', 
       requires = 'kyazdani42/nvim-web-devicons'
     }
+    -- lualine
+    use({
+      "nvim-lualine/lualine.nvim",
+      requires = { "kyazdani42/nvim-web-devicons" },
+    })
+    use("arkav/lualine-lsp-progress")
+    -- alpha-nvim
+    use({
+      "goolord/alpha-nvim",
+      requires = { "kyazdani42/nvim-web-devicons" },
+    })
     -- treesistter
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
     }
+    -- Lsp配置
     use {
       'williamboman/mason.nvim',
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
     }
+    -- 补全引擎
+    use("hrsh7th/nvim-cmp")
+    -- Snippet 引擎
+    use("hrsh7th/vim-vsnip")
+    -- 补全源
+    use("hrsh7th/cmp-vsnip")
+    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
+    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
+    use("hrsh7th/cmp-path") -- { name = 'path' }
+    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+    use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
+    -- 常见编程语言代码段
+    use("rafamadriz/friendly-snippets")
+    -- UI 增强
+    use("onsails/lspkind-nvim")
+    use("tami5/lspsaga.nvim")
   end,
   config = {
     -- 最大并发数
