@@ -9,5 +9,8 @@ setopt appendhistory
 # print prompt with colors
 autoload -U colors && colors
 
+# Default Github mirror
+DOT_GITHUB_MIRROR=http://kgithub.com
+
 source $DOTDIR/zsh/plugin.zsh
 source $DOTDIR/aliases/aliases.sh
