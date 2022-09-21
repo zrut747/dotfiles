@@ -19,6 +19,8 @@ local opt = {
 local map = vim.api.nvim_set_keymap
 
 --------------------------------------------------------------------
+-- 使用 jk 退出 insert 模式
+map("i", "jk", "<ESC>", opt)
 -- 插件快捷键
 local pluginKeys = {}
 
