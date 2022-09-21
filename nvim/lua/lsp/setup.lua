@@ -1,3 +1,9 @@
+require("mason").setup({
+  github = {
+    download_url_template = "https://kgithub.com/%s/releases/download/%s/%s",
+    -- download_url_template = "https://hub.nuaa.cf.com/%s/releases/download/%s/%s",
+  }
+})
 require("mason-lspconfig").setup({
   ensure_installed = {
     "volar", "sumneko_lua"

@@ -14,20 +14,25 @@ require('packer').startup({
     }
     -- bufferline
     use {
-      'akinsho/bufferline.nvim', 
+      'akinsho/bufferline.nvim',
       requires = 'kyazdani42/nvim-web-devicons'
     }
     -- lualine
-    use({
+    use{
       "nvim-lualine/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons" },
-    })
+      requires = "kyazdani42/nvim-web-devicons"
+    }
     use("arkav/lualine-lsp-progress")
+    -- telescope
+    use {
+      "nvim-telescope/telescope.nvim",
+      require = "nvim-lua/plenary.nvim"
+    }
     -- alpha-nvim
-    use({
+    use{
       "goolord/alpha-nvim",
-      requires = { "kyazdani42/nvim-web-devicons" },
-    })
+      requires = "kyazdani42/nvim-web-devicons"
+    }
     -- treesistter
     use {
       'nvim-treesitter/nvim-treesitter',
