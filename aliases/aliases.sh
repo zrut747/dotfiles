@@ -16,3 +16,6 @@ alias gb="git branch"
 alias gco="git checkout"
 alias gp="git push"
 alias gl="git pull"
+
+# nvim
+alias nv="nvim"
