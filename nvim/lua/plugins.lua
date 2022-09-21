@@ -56,6 +56,11 @@ require('packer').startup({
     -- UI 增强
     use("onsails/lspkind-nvim")
     use("tami5/lspsaga.nvim")
+    -- 代码格式化
+    use({
+      "jose-elias-alvarez/null-ls.nvim",
+      requires = "nvim-lua/plenary.nvim"
+    })
     -- Lua 增强
     use("folke/lua-dev.nvim")
     ----------------------------------------------
