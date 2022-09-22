@@ -1,6 +1,12 @@
 ## 前置依赖记录
 
-全局依赖：nodejs
+全局依赖：
+
+- nodejs
+
+treesitter
+
+- gcc, gcc-c++（debian 系也可以安装build-essential)
 
 telescope：
 
