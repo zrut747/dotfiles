@@ -1,7 +1,7 @@
 require("packer").startup({
   function(use)
     -- Packer can manage itself
-    use "wbthomason/packer.nvim"
+    use("wbthomason/packer.nvim")
     -- gruvbox theme
     use {
         "ellisonleao/gruvbox.nvim",
@@ -17,6 +17,8 @@ require("packer").startup({
       "akinsho/bufferline.nvim",
       requires = "kyazdani42/nvim-web-devicons"
     }
+    -- vim-bbye
+    use("moll/vim-bbye")
     -- lualine
     use{
       "nvim-lualine/lualine.nvim",

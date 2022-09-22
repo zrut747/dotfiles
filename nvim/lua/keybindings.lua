@@ -56,7 +56,6 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = "Y", action = "copy_path" },
   { key = "gy", action = "copy_absolute_path" },
   { key = "I", action = "toggle_file_info" },
-  { key = "n", action = "tabnew" },
   -- 进入下一级
   { key = { "]" }, action = "cd" },
   -- 进入上一级
@@ -66,9 +65,9 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
 -- 左右Tab切换
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
--- "moll/vim-bbye" 关闭当前 buffer
-map("n", "<leader>bc", ":bdelete!<CR>", opt)
-map("n", "<C-w>", ":bdelete!<CR>", opt)
+-- vim-bbye" 关闭当前 buffer
+map("n", "<leader>bc", ":Bdelete!<CR>", opt)
+map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 关闭左/右侧标签页
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
