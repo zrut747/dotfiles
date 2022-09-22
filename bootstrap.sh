@@ -22,3 +22,6 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   echo "Cloning tpm..."
   git clone -q --depth 1 $DOT_GITHUB_MIRROR/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+# TODO
+# 增加wsl自动配置
