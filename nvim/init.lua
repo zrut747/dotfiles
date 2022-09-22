@@ -15,7 +15,6 @@ require("plugin-config.lualine")
 require("plugin-config.telescope")
 require("plugin-config.alpha-nvim")
 require("plugin-config.nvim-treesitter")
-require("plugin-config.mason")
 require("plugin-config.comment")
 -- lsp配置
 require("lsp.setup")
