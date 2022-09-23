@@ -16,7 +16,7 @@ null_ls.setup({
     -- formatting.stylua,
 
     -- frontend
-    formatting.prettier.with({ -- 比默认少了 markdown
+    formatting.prettier.with({
       filetypes = {
         "javascript",
         "javascriptreact",
