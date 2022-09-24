@@ -73,6 +73,8 @@ require("packer").startup({
     use("numToStr/Comment.nvim")
     -- hop
     use("phaazon/hop.nvim")
+    -- which-key
+    use("folke/which-key.nvim")
   end,
   config = {
     -- 最大并发数

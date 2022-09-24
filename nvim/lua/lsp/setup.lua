@@ -6,7 +6,8 @@ require("mason").setup({
 })
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "volar", "sumneko_lua"
+    "volar",
+    "sumneko_lua",
   },
   automatic_installation = false,
 })
@@ -20,6 +21,7 @@ local lspconfig = require("lspconfig")
 local servers = {
   sumneko_lua = require("lsp.config.lua"),
   volar = require("lsp.config.volar"),
+  -- eslint = require("lsp.config.eslint"),
 }
 
 for name, config in pairs(servers) do
