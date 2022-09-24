@@ -8,6 +8,9 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
+h = require("null-ls.helpers")
+u = require("null-ls.utils")
+
 null_ls.setup({
   debug = false,
   sources = {
@@ -43,6 +46,12 @@ null_ls.setup({
     -- Diagnostics  ---------------------
     diagnostics.eslint.with({
       prefer_local = "node_modules/.bin",
+      cwd = h.cache.by_bufnr(function(params)
+          return u.root_pattern(
+              ".eslintrc",
+              ".eslintrcignore"
+          )(params.bufname)
+      end),
     }),
     -- diagnostics.markdownlint,
     -- markdownlint-cli2

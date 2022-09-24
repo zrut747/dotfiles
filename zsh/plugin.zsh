@@ -33,6 +33,7 @@ plugins=(
   peterhurford/up.zsh
   zsh-users/zsh-autosuggestions
   zdharma-continuum/fast-syntax-highlighting
+  SukkaW/zsh-proxy
 )
 plugin-load $plugins
 

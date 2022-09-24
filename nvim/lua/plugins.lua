@@ -42,11 +42,9 @@ require("packer").startup({
     }
     --------------------- LSP --------------------
     -- Lsp配置
-    use {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-    }
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+    use("neovim/nvim-lspconfig")
     -- 补全引擎
     use("hrsh7th/nvim-cmp")
     -- Snippet 引擎

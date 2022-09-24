@@ -7,7 +7,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- 保存时自动格式化
 autocmd("BufWritePre", {
   group = myAutoGroup,
-  pattern = { "*.lua", "*.py", "*.sh" },
+  pattern = { "*.lua", "*.py", "*.sh", ".vue" },
   callback = vim.lsp.buf.formatting_sync,
 })
 
