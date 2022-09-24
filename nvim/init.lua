@@ -16,6 +16,7 @@ require("plugin-config.telescope")
 require("plugin-config.alpha-nvim")
 require("plugin-config.nvim-treesitter")
 require("plugin-config.comment")
+require("plugin-config.hop")
 -- lsp配置
 require("lsp.setup")
 require("lsp.cmp")

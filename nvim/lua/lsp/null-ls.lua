@@ -8,8 +8,8 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
-h = require("null-ls.helpers")
-u = require("null-ls.utils")
+local h = require("null-ls.helpers")
+local u = require("null-ls.utils")
 
 null_ls.setup({
   debug = false,

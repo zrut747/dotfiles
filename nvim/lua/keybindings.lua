@@ -32,6 +32,12 @@ map("n", "Z", ":foldopen<CR>", opt)
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 map("n", "<A-h>", ":NvimTreeFocus<CR>", opt)
 map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
+
+-- hop
+map("n", "<Leader><Leader>b", "<cmd>HopWordBC<CR>", opt)
+map("n", "<Leader><Leader>w", "<cmd>HopWordAC<CR>", opt)
+map("n", "<Leader><Leader>j", "<cmd>HopChar2<CR>", opt)
+
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "o", "<2-LeftMouse>" }, action = "edit" },

@@ -69,8 +69,10 @@ require("packer").startup({
     -- Lua 增强
     use("folke/lua-dev.nvim")
     ----------------------------------------------
-    ---- Comment
+    -- Comment
     use("numToStr/Comment.nvim")
+    -- hop
+    use("phaazon/hop.nvim")
   end,
   config = {
     -- 最大并发数
