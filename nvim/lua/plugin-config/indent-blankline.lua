@@ -1,6 +1,6 @@
 local status, ib = pcall(require, "indent-blankline")
 if not status then
-  vim.notify("没有找到 bufferline")
+  vim.notify("没有找到 indent-blankline")
   return
 end
 

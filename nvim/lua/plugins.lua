@@ -71,6 +71,7 @@ packer.startup({
     -- treesistter
     use {
       "nvim-treesitter/nvim-treesitter",
+      "p00f/nvim-ts-rainbow",
       run = ":TSUpdate"
     }
     use "lewis6991/gitsigns.nvim"
@@ -113,6 +114,8 @@ packer.startup({
     use("kylechui/nvim-surround")
     -- audopairs
     use("windwp/nvim-autopairs")
+    -- colorizer
+    use("norcalli/nvim-colorizer.lua")
     -- indent-blankline
     use("lukas-reineke/indent-blankline.nvim")
     -- hop

@@ -17,5 +17,11 @@ alias gco="git checkout"
 alias gp="git push"
 alias gl="git pull"
 
+# tmux
+alias tl="tmux ls"
+alias tn="tmux new -s $1"
+alias ta="tmux attach -t"
+alias tk="tmux kill-session -t"
+
 # nvim
 alias nv="nvim"
