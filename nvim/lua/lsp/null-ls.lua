@@ -14,10 +14,6 @@ local u = require("null-ls.utils")
 null_ls.setup({
   debug = false,
   sources = {
-    -- Formatting ---------------------
-    -- StyLua
-    -- formatting.stylua,
-
     -- frontend
     formatting.prettier.with({
       filetypes = {
@@ -31,18 +27,16 @@ null_ls.setup({
         "less",
         "html",
         "json",
-        -- "yaml",
-        -- "graphql",
-        -- "markdown",
+        "markdown",
       },
       prefer_local = "node_modules/.bin",
     }),
+
     -- Python
     -- pip install black
     -- asdf reshim python
     -- formatting.black.with({ extra_args = { "--fast" } }),
-    -----------------------------------------------------
-    -- formatting.fixjson,
+
     -- Diagnostics  ---------------------
     diagnostics.eslint.with({
       prefer_local = "node_modules/.bin",
@@ -53,14 +47,6 @@ null_ls.setup({
           )(params.bufname)
       end),
     }),
-    -- diagnostics.markdownlint,
-    -- markdownlint-cli2
-    -- diagnostics.markdownlint.with({
-    --   prefer_local = "node_modules/.bin",
-    --   command = "markdownlint-cli2",
-    --   args = { "$FILENAME", "#node_modules" },
-    -- }),
-    --
     -- code actions ---------------------
     code_actions.eslint.with({
       prefer_local = "node_modules/.bin",
@@ -72,8 +58,5 @@ null_ls.setup({
   diagnostics_format = "[#{s}] #{m}",
   on_attach = function(_)
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()']])
-    -- if client.resolved_capabilities.document_formatting then
-    --   vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-    -- end
   end,
 })

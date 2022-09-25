@@ -1,9 +1,8 @@
--- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
--- https://github.com/hrsh7th/nvim-cmp
--- https://github.com/onsails/lspkind-nvim
-
---local lspkind = require("lspkind")
-local cmp = require("cmp")
+local status, cmp = pcall(require, "cmp")
+if not status then
+  vim.notify("没有找到 bufferline")
+  return
+end
 
 cmp.setup({
   -- 指定 snippet 引擎

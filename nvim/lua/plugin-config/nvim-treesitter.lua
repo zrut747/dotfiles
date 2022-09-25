@@ -3,7 +3,7 @@ local github_mirror = "https://kgithub.com"
 for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
   config.install_info.url = config.install_info.url:gsub("https://github.com", github_mirror)
 end
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup {
   -- 安装 language parser
   -- :TSInstallInfo 命令查看支持的语言
   ensure_installed = {"html", "css", "vim", "lua", "javascript", "typescript", "tsx", "vue"},

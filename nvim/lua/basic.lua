@@ -63,7 +63,8 @@ vim.opt.termguicolors = true
 -- 是否显示不可见字符
 vim.opt.list = true
 -- 不可见字符的显示，这里只把空格显示为一个点
-vim.opt.listchars = "space:·,tab:··"
+vim.opt.listchars:append "space:."
+vim.opt.listchars:append "tab:.."
 -- 补全增强
 vim.opt.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|

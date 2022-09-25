@@ -6,8 +6,15 @@ require("mason").setup({
 })
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "volar",
+    "bashls",
     "sumneko_lua",
+    -- frontend
+    "html",
+    "cssls",
+    "emmet_ls",
+    "jsonls",
+    "tsserver",
+    "volar",
   },
   automatic_installation = false,
 })
@@ -20,8 +27,13 @@ local lspconfig = require("lspconfig")
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 local servers = {
   sumneko_lua = require("lsp.config.lua"),
+  bashls = require("lsp.config.bash"),
+  html = require("lsp.config.html"),
+  cssls = require("lsp.config.css"),
+  emmet_ls = require("lsp.config.emmet"),
+  jsonls = require("lsp.config.json"),
+  tsserver = require("lsp.config.ts"),
   volar = require("lsp.config.volar"),
-  -- eslint = require("lsp.config.eslint"),
 }
 
 for name, config in pairs(servers) do

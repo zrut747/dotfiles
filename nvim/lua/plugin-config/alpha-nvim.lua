@@ -1,4 +1,9 @@
-local alpha = require("alpha")
+
+local status, alpha = pcall(require, "alpha")
+if not status then
+  vim.notify("没有找到 bufferline")
+  return
+end
 local dashboard = require("alpha.themes.dashboard")
 
 -- Set menu
