@@ -3,7 +3,7 @@
 syntax on
 
 " 使用jj退出insert模式
-inoremap jj <ESC>
+inoremap jk <ESC>
 
 " 移动
 nnoremap H ^
