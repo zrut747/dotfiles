@@ -37,5 +37,5 @@ plugins=(
 )
 plugin-load $plugins
 
-# change the escape key to `jj` in insert mode
+# change the escape key to `jk` in insert mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
