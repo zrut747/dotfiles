@@ -22,6 +22,7 @@ require("plugin-config.autopairs")
 require("plugin-config.indent-blankline")
 require("plugin-config.hop")
 require("plugin-config.which-key")
+require("plugin-config.symbols-outline")
 require("plugin-config.nvim-colorizer")
 -- lsp配置
 require("lsp.setup")

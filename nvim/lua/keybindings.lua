@@ -27,8 +27,7 @@ map("n", "<C-u>", "10k", opt)
 map("n", "<C-d>", "10j", opt)
 
 -- 保存退出
-map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>wq", ":wqa<CR>", opt)
+map("n", "<leader>q", ":wqa<CR>", opt)
 
 -- 插件快捷键
 local pluginKeys = {}
@@ -139,9 +138,8 @@ pluginKeys.mapLSP = function(mapbuf)
   mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
   -- code_definition
   -- mapbuf('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opt)
-  -- mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-  -- mapbuf("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>", opt)
-  mapbuf("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
+  -- mapbuf("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
+  mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
   mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   -- hover
   -- mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)

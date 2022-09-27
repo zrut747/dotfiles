@@ -122,6 +122,8 @@ packer.startup({
     use("phaazon/hop.nvim")
     -- which-key
     use("folke/which-key.nvim")
+    -- outline
+    use("simrat39/symbols-outline.nvim")
   end,
   config = {
     -- 最大并发数
