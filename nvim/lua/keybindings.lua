@@ -21,6 +21,15 @@ local map = vim.api.nvim_set_keymap
 --------------------------------------------------------------------
 -- 使用 jk 退出 insert 模式
 map("i", "jk", "<ESC>", opt)
+
+-- ctrl u / ctrl + d  只移动9行，默认移动半屏
+map("n", "<C-u>", "10k", opt)
+map("n", "<C-d>", "10j", opt)
+
+-- 保存退出
+map("n", "<leader>w", ":w<CR>", opt)
+map("n", "<leader>wq", ":wqa<CR>", opt)
+
 -- 插件快捷键
 local pluginKeys = {}
 
@@ -31,7 +40,6 @@ map("n", "Z", ":foldopen<CR>", opt)
 -- nvim-tree
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 map("n", "<A-h>", ":NvimTreeFocus<CR>", opt)
-map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
 
 -- hop
 map("n", "<Leader><Leader>b", "<cmd>HopWordBC<CR>", opt)
@@ -72,7 +80,6 @@ map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- vim-bbye" 关闭当前 buffer
 map("n", "<leader>bc", ":Bdelete!<CR>", opt)
-map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 关闭左/右侧标签页
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
@@ -135,6 +142,7 @@ pluginKeys.mapLSP = function(mapbuf)
   -- mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
   -- mapbuf("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>", opt)
   mapbuf("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
+  mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   -- hover
   -- mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
   mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
