@@ -1,4 +1,4 @@
-local status, ib = pcall(require, "indent-blankline")
+local status, ib = pcall(require, "indent_blankline")
 if not status then
   vim.notify("没有找到 indent-blankline")
   return
