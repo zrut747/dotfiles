@@ -38,7 +38,6 @@ map("n", "Z", ":foldopen<CR>", opt)
 
 -- nvim-tree
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
-map("n", "<A-h>", ":NvimTreeFocus<CR>", opt)
 
 -- hop
 map("n", "<Leader><Leader>b", "<cmd>HopWordBC<CR>", opt)
