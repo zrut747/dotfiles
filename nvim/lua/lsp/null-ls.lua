@@ -31,11 +31,14 @@ null_ls.setup({
       },
       prefer_local = "node_modules/.bin",
     }),
+    -- rust
+    -- rustup component add rustfmt
+    formatting.rustfmt,
 
     -- Python
     -- pip install black
     -- asdf reshim python
-    -- formatting.black.with({ extra_args = { "--fast" } }),
+    formatting.black.with({ extra_args = { "--fast" } }),
 
     -- Diagnostics  ---------------------
     diagnostics.eslint.with({

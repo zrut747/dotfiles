@@ -8,6 +8,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "bashls",
     "sumneko_lua",
+    "rust_analyzer",
     -- frontend
     "html",
     "cssls",
@@ -34,6 +35,7 @@ local servers = {
   jsonls = require("lsp.config.json"),
   tsserver = require("lsp.config.ts"),
   volar = require("lsp.config.volar"),
+  rust_analyzer = require("lsp.config.rust"),
 }
 
 for name, config in pairs(servers) do
