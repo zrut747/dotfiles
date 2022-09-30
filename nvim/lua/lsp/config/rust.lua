@@ -29,7 +29,7 @@ return {
   on_setup = function(server)
     local ok_rt, rust_tools = pcall(require, "rust-tools")
     if not ok_rt then
-      print("Failed to load rust tools, will set up `rust_analyzer` without `rust-tools`.")
+      -- print("Failed to load rust tools, will set up `rust_analyzer` without `rust-tools`.")
       server.setup(lspconfig_opts)
     else
       -- We don't want to call lspconfig.rust_analyzer.setup() when using rust-tools
