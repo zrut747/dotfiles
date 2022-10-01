@@ -28,6 +28,7 @@ map("n", "<C-d>", "10j", opt)
 
 -- 保存退出
 map("n", "<leader>q", ":wqa<CR>", opt)
+map("n", "<leader>bd", ":Bdelete<CR>", opt)
 
 -- 插件快捷键
 local pluginKeys = {}
