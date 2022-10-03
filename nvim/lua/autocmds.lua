@@ -34,7 +34,7 @@ autocmd("BufEnter", {
   end,
 })
 
--- wsl 环境复制时使用宿主机剪切板
+-- wsl 使用宿主机剪切板
 if string.find(vim.fn.system("uname -r"), "microsoft") then
   vim.cmd [[
     augroup Yank
