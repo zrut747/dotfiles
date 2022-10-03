@@ -1,11 +1,9 @@
+local u = require("utils")
+local opts = require("lsp.config.default")
+
 local keybindings = require("keybindings")
 local ts_utils = require("nvim-lsp-ts-utils")
-local opts = {
-  flags = {
-    debounce_text_changes = 150,
-  },
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-
+local ts_opts = {
   -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils/blob/main/lua/nvim-lsp-ts-utils/utils.lua
   -- 传入 tsserver 初始化参数
   -- make inlay hints work
@@ -89,6 +87,6 @@ local opts = {
 
 return {
   on_setup = function(server)
-    server.setup(opts)
+    server.setup(u.merge(opts, ts_opts))
   end,
 }
