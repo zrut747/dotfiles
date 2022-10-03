@@ -9,6 +9,7 @@ require("mason-lspconfig").setup({
     "bashls",
     "sumneko_lua",
     "rust_analyzer",
+    "taplo",
     -- frontend
     "html",
     "cssls",
@@ -21,6 +22,8 @@ require("mason-lspconfig").setup({
 })
 
 local lspconfig = require("lspconfig")
+local default_config = require("lsp.config.default")
+local u = require("utils")
 
 -- 安装列表
 -- { key: 服务器名， value: 配置文件 }
@@ -36,14 +39,16 @@ local servers = {
   tsserver = require("lsp.config.ts"),
   volar = require("lsp.config.volar"),
   rust_analyzer = require("lsp.config.rust"),
+  taplo = "",
 }
 
 for name, config in pairs(servers) do
   if config ~= nil and type(config) == "table" then
     -- 自定义初始化配置文件必须实现on_setup 方法
-    config.on_setup(lspconfig[name])
+    config.on_setup(u.merge(default_config, lspconfig[name]))
   else
     -- 使用默认参数
-    lspconfig[name].setup({})
+    lspconfig[name].setup(default_config)
   end
+  vim.notify(default_config)
 end

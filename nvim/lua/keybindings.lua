@@ -28,7 +28,6 @@ map("n", "<C-d>", "10j", opt)
 
 -- 保存退出
 map("n", "<leader>q", ":wqa<CR>", opt)
-map("n", "<leader>bd", ":Bdelete<CR>", opt)
 
 -- 插件快捷键
 local pluginKeys = {}
@@ -84,9 +83,9 @@ map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 -- 关闭其他标签页
 map("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
--- 关闭选中标签页
-map("n", "<leader>bp", ":BufferLinePickClose<CR>", opt)
 
+-- SymbolsOutline
+map("n", "<A-o>", ":SymbolsOutline<CR>", opt)
 -- Telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)

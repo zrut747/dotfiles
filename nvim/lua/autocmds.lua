@@ -33,3 +33,13 @@ autocmd("BufEnter", {
       + "r" -- But do continue when pressing enter.
   end,
 })
+
+-- wsl 环境复制时使用宿主机剪切板
+vim.cmd [[
+  if system('uname -r') =~ "microsoft"
+    augroup Yank
+    autocmd!
+    autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+    augroup END
+  endif
+]]
