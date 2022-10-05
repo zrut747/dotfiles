@@ -37,7 +37,7 @@ local servers = {
   tsserver = require("lsp.config.ts"),
   volar = "",
   rust_analyzer = require("lsp.config.rust"),
-  taplo = "",
+  -- taplo = "",
 }
 
 for name, config in pairs(servers) do
