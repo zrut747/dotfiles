@@ -32,10 +32,10 @@ local servers = {
   bashls = "",
   html = "",
   cssls = require("lsp.config.css"),
-  emmet_ls = require("lsp.config.emmet"),
+  -- emmet_ls = require("lsp.config.emmet"),
   jsonls = require("lsp.config.json"),
-  tsserver = require("lsp.config.ts"),
-  volar = "",
+  -- tsserver = require("lsp.config.ts"),
+  volar = require("lsp.config.volar"),
   rust_analyzer = require("lsp.config.rust"),
   -- taplo = "",
 }
