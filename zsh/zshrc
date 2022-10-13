@@ -8,6 +8,7 @@ setopt appendhistory
 
 # print prompt with colors
 autoload -U colors && colors
+export TERM=xterm-256color
 
 # Default Github mirror
 DOT_GITHUB_MIRROR=https://kgithub.com
