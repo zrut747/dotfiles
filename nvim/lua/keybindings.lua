@@ -145,8 +145,10 @@ pluginKeys.mapLSP = function(mapbuf)
   mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
   -- diagnostic
   mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-  mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
-  mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
+  mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
+  mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
+  -- reference
+  mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
   -- formatting
   mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
 end
