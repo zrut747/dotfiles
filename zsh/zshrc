@@ -10,7 +10,7 @@ setopt appendhistory
 autoload -U colors && colors
 
 # Default Github mirror
-DOT_GITHUB_MIRROR=https://kgithub.com
+export DOT_GITHUB_MIRROR=https://kgithub.com
 
 source $DOTDIR/zsh/plugin.zsh
 source $DOTDIR/aliases/aliases.sh

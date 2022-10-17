@@ -20,11 +20,6 @@ zsh ~/.dotfiles/bootstrap.sh
 
 修改环境变量可以修改一些初始化时的行为。
 
-### DOT_GITHUB_MIRROR
-
-修改下载插件时使用的 Github 地址。(nvim 的插件下载无法读取到 .zshrc 里的环境变量，需要单独修改）
-
-
-```bash
-DOT_GITHUB_MIRROR=https://hub.nuaa.cf/
-```
+| 环境变量                             | 说明                                    | 默认值                            |
+|--------------------------------------|-----------------------------------------|-----------------------------------|
+| `DOT_GITHUB_MIRROR`                  | 是否使用 github 的镜像地址              | `https://kgithub.com`             |

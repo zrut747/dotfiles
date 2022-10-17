@@ -1,6 +1,8 @@
+local u = require("utils")
+local github_mirror = u.github_mirror()
 require("mason").setup({
   github = {
-    download_url_template = "https://kgithub.com/%s/releases/download/%s/%s",
+    download_url_template = string.format("%s/%%s/releases/download/%%s/%%s", github_mirror),
     -- download_url_template = "https://hub.nuaa.cf.com/%s/releases/download/%s/%s",
   }
 })

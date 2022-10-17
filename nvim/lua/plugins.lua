@@ -1,3 +1,5 @@
+local u = require("utils")
+local mirror = u.github_mirror()
 -- 自动安装 Packer.nvim
 -- 插件安装目录
 -- ~/.local/share/nvim/site/pack/packer/
@@ -11,7 +13,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "clone",
     "--depth",
     "1",
-    "https://kgithub.com/wbthomason/packer.nvim",
+    string.format("%s/wbthomason/packer.nvim", mirror),
     -- "https://gitcode.net/mirrors/wbthomason/packer.nvim",
     install_path,
   })
@@ -131,7 +133,7 @@ packer.startup({
     max_jobs = 16,
     -- 自定义源
     git = {
-      default_url_format = "https://kgithub.com/%s"
+      default_url_format = string.format("%s/%%s", mirror)
       -- default_url_format = "https://hub.nuaa.cf/%s"
     },
   },
