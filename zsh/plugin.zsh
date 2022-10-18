@@ -1,6 +1,5 @@
 # where should we download your Zsh plugins?
 ZPLUGINDIR=$HOME/.config/zsh/plugins
-DOT_GITHUB_MIRROR=${DOT_GITHUB_MIRROR:-"https://github.com"}
 
 # declare a simple plugin-load function
 function plugin-load {

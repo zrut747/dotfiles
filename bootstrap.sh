@@ -1,7 +1,6 @@
 #! /usr/bin/env zsh
 
 DOTDIR=~/.dotfiles
-DOT_GITHUB_MIRROR=${DOT_GITHUB_MIRROR:-"https://github.com"}
 
 # source init.sh
 touch ~/.zshrc
