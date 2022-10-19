@@ -42,6 +42,7 @@ packer.startup({
         "ellisonleao/gruvbox.nvim",
         requires = {"rktjmp/lush.nvim"}
     }
+    use("folke/tokyonight.nvim")
     -- nvim-tree
     use {
         "kyazdani42/nvim-tree.lua",
@@ -73,9 +74,10 @@ packer.startup({
     -- treesistter
     use {
       "nvim-treesitter/nvim-treesitter",
-      "p00f/nvim-ts-rainbow",
+      commit = "c853370",
       run = ":TSUpdate"
     }
+    use("p00f/nvim-ts-rainbow")
     use "lewis6991/gitsigns.nvim"
     --------------------- LSP --------------------
     -- Lsp配置
@@ -107,7 +109,10 @@ packer.startup({
     -- Lua 增强
     use("folke/lua-dev.nvim")
     -- TypeScript 增强
-    use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
+    use({ 
+      "jose-elias-alvarez/nvim-lsp-ts-utils",
+      requires = "nvim-lua/plenary.nvim"
+    })
     -- JSON 增强
     use("b0o/schemastore.nvim")
     ----------------------------------------------
