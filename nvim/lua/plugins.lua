@@ -51,6 +51,7 @@ packer.startup({
     -- bufferline
     use {
       "akinsho/bufferline.nvim",
+      tag = "v1.*",
       requires = "kyazdani42/nvim-web-devicons"
     }
     -- vim-bbye
