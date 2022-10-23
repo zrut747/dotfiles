@@ -44,6 +44,7 @@ vim.opt.whichwrap = "<,>,[,]"
 vim.opt.hidden = true
 -- 鼠标支持
 vim.opt.mouse = "a"
+vim.opt.mousemoveevent = true
 -- 禁止创建备份文件
 vim.opt.backup = false
 vim.opt.writebackup = false

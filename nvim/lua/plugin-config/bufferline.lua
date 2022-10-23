@@ -21,7 +21,13 @@ bufferline.setup({
         text_align = "left",
       },
     },
-    -- 使用 nvim 内置 LSP 
+    -- 鼠标悬浮显示关闭按钮
+    hover = {
+      enabled = true,
+      delay = 100,
+      reveal = { 'close' }
+    },
+    -- 使用 nvim 内置 LSP
     diagnostics = "nvim_lsp",
     -- 可选，显示 LSP 报错图标
     ---@diagnostic disable-next-line: unused-local
