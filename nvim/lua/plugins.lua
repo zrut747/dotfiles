@@ -39,14 +39,14 @@ packer.startup({
     use("wbthomason/packer.nvim")
     -- gruvbox theme
     use {
-        "ellisonleao/gruvbox.nvim",
-        requires = {"rktjmp/lush.nvim"}
+      "ellisonleao/gruvbox.nvim",
+      requires = { "rktjmp/lush.nvim" }
     }
     use("folke/tokyonight.nvim")
     -- nvim-tree
     use {
-        "kyazdani42/nvim-tree.lua",
-        requires = "kyazdani42/nvim-web-devicons"
+      "kyazdani42/nvim-tree.lua",
+      requires = "kyazdani42/nvim-web-devicons"
     }
     -- bufferline
     use {
@@ -57,7 +57,7 @@ packer.startup({
     -- vim-bbye
     use("moll/vim-bbye")
     -- lualine
-    use{
+    use {
       "nvim-lualine/lualine.nvim",
       requires = "kyazdani42/nvim-web-devicons"
     }
@@ -68,7 +68,7 @@ packer.startup({
       require = "nvim-lua/plenary.nvim"
     }
     -- alpha-nvim
-    use{
+    use {
       "goolord/alpha-nvim",
       requires = "kyazdani42/nvim-web-devicons"
     }
@@ -110,7 +110,7 @@ packer.startup({
     -- Lua 增强
     use("folke/lua-dev.nvim")
     -- TypeScript 增强
-    use({ 
+    use({
       "jose-elias-alvarez/nvim-lsp-ts-utils",
       requires = "nvim-lua/plenary.nvim"
     })

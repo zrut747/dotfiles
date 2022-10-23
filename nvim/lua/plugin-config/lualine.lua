@@ -4,12 +4,13 @@ if not status then
   return
 end
 
+local navic = require("nvim-navic")
+
 lualine.setup({
   options = {
     -- 指定皮肤
     -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
     -- theme = "gruvbox",
-    theme = "tokyonight",
     -- 分割线
     component_separators = {
       left = "|",
