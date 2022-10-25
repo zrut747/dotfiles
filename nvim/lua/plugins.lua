@@ -85,7 +85,7 @@ packer.startup({
     -- treesistter
     use {
       "nvim-treesitter/nvim-treesitter",
-      commit = "c853370",
+      -- commit = "c853370",
       run = ":TSUpdate"
     }
     use("p00f/nvim-ts-rainbow")
