@@ -139,15 +139,13 @@ pluginKeys.mapLSP = function(mapbuf)
   -- mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
   mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
   -- code_definition
-  -- mapbuf('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opt)
-  -- mapbuf("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
   mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
   mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   -- hover
   -- mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
   mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
   -- diagnostic
-  mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
+  mapbuf("n", "cd", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
   mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
   mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
   -- reference
