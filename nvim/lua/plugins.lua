@@ -74,6 +74,7 @@ packer.startup({
     -- telescope
     use {
       "nvim-telescope/telescope.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
       require = "nvim-lua/plenary.nvim"
     }
     -- alpha-nvim
