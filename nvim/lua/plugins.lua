@@ -133,6 +133,8 @@ packer.startup({
     use("folke/which-key.nvim")
     -- outline
     use("simrat39/symbols-outline.nvim")
+    -- scratch
+    use("LintaoAmons/scratch.nvim")
   end,
   config = {
     -- 最大并发数

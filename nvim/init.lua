@@ -24,6 +24,7 @@ require("plugin-config.hop")
 require("plugin-config.which-key")
 require("plugin-config.symbols-outline")
 require("plugin-config.nvim-colorizer")
+require("plugin-config.scratch")
 -- lsp配置
 require("lsp.setup")
 require("lsp.cmp")

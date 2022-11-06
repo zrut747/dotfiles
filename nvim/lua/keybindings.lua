@@ -127,6 +127,9 @@ pluginKeys.comment = {
 map("n", "<C-_>", "gcc", { noremap = false })
 map("v", "<C-_>", "gcc", { noremap = false })
 
+-- scratch 插件
+map("n", "<M-C-o>", "<cmd>ScratchOpen<cr>", opt)
+
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)
   -- rename
