@@ -46,42 +46,30 @@ packer.startup({
   function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
+    -- basic plugin
+    use("kyazdani42/nvim-web-devicons")
+    use("nvim-lua/plenary.nvim")
+    use("rktjmp/lush.nvim")
     -- gruvbox theme
-    use {
-      "ellisonleao/gruvbox.nvim",
-      requires = { "rktjmp/lush.nvim" }
-    }
+    use("ellisonleao/gruvbox.nvim")
     use("folke/tokyonight.nvim")
     -- nvim-tree
-    use {
-      "kyazdani42/nvim-tree.lua",
-      requires = "kyazdani42/nvim-web-devicons"
-    }
+    use("kyazdani42/nvim-tree.lua")
     -- bufferline
     use {
       "akinsho/bufferline.nvim",
       tag = "v3.*",
-      requires = "kyazdani42/nvim-web-devicons"
     }
     -- vim-bbye
     use("moll/vim-bbye")
     -- lualine
-    use {
-      "nvim-lualine/lualine.nvim",
-      requires = "kyazdani42/nvim-web-devicons"
-    }
+    use("nvim-lualine/lualine.nvim")
     use("arkav/lualine-lsp-progress")
     -- telescope
-    use {
-      "nvim-telescope/telescope.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-      require = "nvim-lua/plenary.nvim"
-    }
+    use("nvim-telescope/telescope.nvim")
+    use("nvim-telescope/telescope-ui-select.nvim")
     -- alpha-nvim
-    use {
-      "goolord/alpha-nvim",
-      requires = "kyazdani42/nvim-web-devicons"
-    }
+    use("goolord/alpha-nvim")
     -- treesistter
     use {
       "nvim-treesitter/nvim-treesitter",
@@ -113,17 +101,11 @@ packer.startup({
     use("glepnir/lspsaga.nvim")
     use("SmiteshP/nvim-navic")
     -- 代码格式化
-    use({
-      "jose-elias-alvarez/null-ls.nvim",
-      requires = "nvim-lua/plenary.nvim"
-    })
+    use("jose-elias-alvarez/null-ls.nvim")
     -- Lua 增强
     use("folke/lua-dev.nvim")
     -- TypeScript 增强
-    use({
-      "jose-elias-alvarez/nvim-lsp-ts-utils",
-      requires = "nvim-lua/plenary.nvim"
-    })
+    use("jose-elias-alvarez/nvim-lsp-ts-utils")
     -- JSON 增强
     use("b0o/schemastore.nvim")
     ----------------------------------------------
@@ -156,3 +138,4 @@ packer.startup({
     },
   },
 })
+
