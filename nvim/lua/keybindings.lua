@@ -40,9 +40,9 @@ map("n", "Z", ":foldopen<CR>", opt)
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 
 -- hop
-map("n", "<Leader><Leader>b", "<cmd>HopWordBC<CR>", opt)
-map("n", "<Leader><Leader>w", "<cmd>HopWordAC<CR>", opt)
-map("n", "<Leader><Leader>j", "<cmd>HopChar2<CR>", opt)
+map("n", "<Leader>f", "<cmd>HopChar2<CR>", opt)
+map("n", "<Leader>j", "<cmd>HopLineStartAC<CR>", opt)
+map("n", "<Leader>k", "<cmd>HopLineStartBC<CR>", opt)
 
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
@@ -151,7 +151,7 @@ pluginKeys.mapLSP = function(mapbuf)
   -- reference
   mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
   -- formatting
-  mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
+  mapbuf("n", "<space>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
 end
 
 -- nvim-cmp 自动补全
