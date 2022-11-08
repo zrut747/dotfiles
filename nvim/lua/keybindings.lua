@@ -151,7 +151,7 @@ pluginKeys.mapLSP = function(mapbuf)
   -- reference
   mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
   -- formatting
-  mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+  mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
 end
 
 -- nvim-cmp 自动补全
