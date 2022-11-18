@@ -121,6 +121,8 @@ packer.startup({
     use("lukas-reineke/indent-blankline.nvim")
     -- hop
     use("phaazon/hop.nvim")
+    -- leap
+    use("ggandor/leap.nvim")
     -- which-key
     use("folke/which-key.nvim")
     -- outline
@@ -138,4 +140,3 @@ packer.startup({
     },
   },
 })
-

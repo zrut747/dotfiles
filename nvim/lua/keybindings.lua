@@ -39,10 +39,9 @@ map("n", "Z", ":foldopen<CR>", opt)
 -- nvim-tree
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 
--- hop
-map("n", "<Leader>f", "<cmd>HopChar2<CR>", opt)
-map("n", "<Leader>j", "<cmd>HopLineStartAC<CR>", opt)
-map("n", "<Leader>k", "<cmd>HopLineStartBC<CR>", opt)
+-- leap
+map("n", "<Leader>f", "<Plug>(leap-forward-to)", opt)
+map("n", "<Leader>F", "<Plug>(leap-backward-to)", opt)
 
 -- 列表快捷键
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
