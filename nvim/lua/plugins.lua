@@ -50,9 +50,10 @@ packer.startup({
     use("kyazdani42/nvim-web-devicons")
     use("nvim-lua/plenary.nvim")
     use("rktjmp/lush.nvim")
-    -- gruvbox theme
+    -- theme
     use("ellisonleao/gruvbox.nvim")
     use("folke/tokyonight.nvim")
+    use("navarasu/onedark.nvim")
     -- nvim-tree
     use("kyazdani42/nvim-tree.lua")
     -- bufferline
