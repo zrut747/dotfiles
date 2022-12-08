@@ -130,6 +130,8 @@ packer.startup({
     use("simrat39/symbols-outline.nvim")
     -- scratch
     use("LintaoAmons/scratch.nvim")
+    -- todo
+    use("folke/todo-comments.nvim")
   end,
   config = {
     -- 最大并发数

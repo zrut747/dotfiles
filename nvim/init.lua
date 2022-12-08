@@ -24,6 +24,7 @@ require("plugin-config.leap")
 require("plugin-config.which-key")
 require("plugin-config.nvim-colorizer")
 require("plugin-config.scratch")
+require("plugin-config.todo-comments")
 -- lsp配置
 require("lsp.setup")
 require("lsp.cmp")
