@@ -22,7 +22,6 @@ require("plugin-config.autopairs")
 require("plugin-config.indent-blankline")
 require("plugin-config.leap")
 require("plugin-config.which-key")
-require("plugin-config.symbols-outline")
 require("plugin-config.nvim-colorizer")
 require("plugin-config.scratch")
 -- lsp配置
