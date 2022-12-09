@@ -59,45 +59,6 @@ lspkind.init({
 
 require("lspsaga").init_lsp_saga({})
 
-local navic = require("nvim-navic")
-
-navic.setup {
-  icons = {
-    File = ' ',
-    Module = ' ',
-    Namespace = ' ',
-    Package = ' ',
-    Class = ' ',
-    Method = ' ',
-    Property = ' ',
-    Field = ' ',
-    Constructor = ' ',
-    Enum = ' ',
-    Interface = ' ',
-    Function = ' ',
-    Variable = ' ',
-    Constant = ' ',
-    String = ' ',
-    Number = ' ',
-    Boolean = ' ',
-    Array = ' ',
-    Object = ' ',
-    Key = ' ',
-    Null = ' ',
-    EnumMember = ' ',
-    Struct = ' ',
-    Event = ' ',
-    Operator = ' ',
-    TypeParameter = ' '
-  },
-  highlight = false,
-  separator = " > ",
-  depth_limit = 0,
-  depth_limit_indicator = "..",
-}
-vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-
-
 local M = {}
 -- 为 cmp.lua 提供参数格式
 M.formatting = {

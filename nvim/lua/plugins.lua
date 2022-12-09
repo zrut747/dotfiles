@@ -50,6 +50,7 @@ packer.startup({
     use("kyazdani42/nvim-web-devicons")
     use("nvim-lua/plenary.nvim")
     use("rktjmp/lush.nvim")
+    use("SmiteshP/nvim-navic")
     -- theme
     use("ellisonleao/gruvbox.nvim")
     use("folke/tokyonight.nvim")
@@ -100,7 +101,7 @@ packer.startup({
     -- UI 增强
     use("onsails/lspkind-nvim")
     use("glepnir/lspsaga.nvim")
-    use("SmiteshP/nvim-navic")
+    use("utilyre/barbecue.nvim")
     -- 代码格式化
     use("jose-elias-alvarez/null-ls.nvim")
     -- Lua 增强

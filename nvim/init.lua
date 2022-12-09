@@ -26,6 +26,7 @@ require("plugin-config.nvim-colorizer")
 require("plugin-config.scratch")
 require("plugin-config.todo-comments")
 require("plugin-config.neoscroll")
+require("plugin-config.barbecue")
 -- lsp配置
 require("lsp.setup")
 require("lsp.cmp")
