@@ -10,7 +10,7 @@ lualine.setup({
   options = {
     -- 指定皮肤
     -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-    -- theme = "gruvbox",
+    theme = "onedark",
     -- 分割线
     component_separators = {
       left = "|",
@@ -26,29 +26,25 @@ lualine.setup({
   extensions = { "nvim-tree" },
   sections = {
     lualine_c = {
-      {
-        "filename",
-        path = 1,
-      },
+      "filename",
       {
         "lsp_progress",
         spinner_symbols = { " ", " ", " ", " ", " ", " " },
       },
     },
     lualine_x = {
-      "filesize",
       {
         "fileformat",
-        -- symbols = {
-        --   unix = '', -- e712
-        --   dos = '', -- e70f
-        --   mac = '', -- e711
-        -- },
         symbols = {
-          unix = "LF",
-          dos = "CRLF",
-          mac = "CR",
+          unix = '', -- e712
+          dos = '', -- e70f
+          mac = '', -- e711
         },
+        -- symbols = {
+        --   unix = "LF",
+        --   dos = "CRLF",
+        --   mac = "CR",
+        -- },
       },
       "encoding",
       "filetype",
