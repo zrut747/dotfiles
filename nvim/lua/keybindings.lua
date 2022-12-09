@@ -33,8 +33,8 @@ map("n", "<leader>q", ":wqa<CR>", opt)
 local pluginKeys = {}
 
 -- treesitter 折叠
-map("n", "zz", ":foldclose<CR>", opt)
-map("n", "Z", ":foldopen<CR>", opt)
+map("n", "<Leader>z", ":foldclose<CR>", opt)
+map("n", "<Leader>Z", ":foldopen<CR>", opt)
 
 -- nvim-tree
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
