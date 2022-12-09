@@ -132,6 +132,8 @@ packer.startup({
     use("LintaoAmons/scratch.nvim")
     -- todo
     use("folke/todo-comments.nvim")
+    -- neoscroll
+    use("karb94/neoscroll.nvim")
   end,
   config = {
     -- 最大并发数
