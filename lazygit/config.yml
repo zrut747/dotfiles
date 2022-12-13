@@ -213,3 +213,6 @@ keybinding:
     init: 'i'
     update: 'u'
     bulkMenu: 'b'
+git:
+  pull:
+    mode: 'rebase'
