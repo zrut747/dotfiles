@@ -86,8 +86,8 @@ map("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
 -- SymbolsOutline
 map("n", "<A-o>", ":LSoutlineToggle<CR>", opt)
 -- Telescope
-map("n", "<C-p>", ":Telescope find_files<CR>", opt)
-map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+map("n", "<leader>tf", ":Telescope find_files<CR>", opt)
+map("n", "<leader>tg", ":Telescope live_grep<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
   i = {
