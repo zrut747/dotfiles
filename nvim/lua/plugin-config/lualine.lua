@@ -8,19 +8,8 @@ local navic = require("nvim-navic")
 
 lualine.setup({
   options = {
-    -- 指定皮肤
-    -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-    theme = "onedark",
-    -- 分割线
-    component_separators = {
-      left = "|",
-      right = "|",
-    },
-    -- https://github.com/ryanoasis/powerline-extra-symbols
-    section_separators = {
-      left = " ",
-      right = "",
-    },
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '|', right = '|' },
     globalstatus = true,
   },
   extensions = { "nvim-tree" },
@@ -29,22 +18,18 @@ lualine.setup({
       "filename",
       {
         "lsp_progress",
-        spinner_symbols = { " ", " ", " ", " ", " ", " " },
+        -- spinner_symbols = { " ", " ", " ", " ", " ", " " },
+        spinner_symbols = { '|', '/', '-', '\\' },
       },
     },
     lualine_x = {
       {
         "fileformat",
         symbols = {
-          unix = '', -- e712
-          dos = '', -- e70f
-          mac = '', -- e711
+          unix = '', -- LF
+          dos = '', -- CRLF
+          mac = '', -- CR
         },
-        -- symbols = {
-        --   unix = "LF",
-        --   dos = "CRLF",
-        --   mac = "CR",
-        -- },
       },
       "encoding",
       "filetype",
