@@ -19,6 +19,7 @@ require("mason-lspconfig").setup({
     "jsonls",
     "tsserver",
     "volar",
+    "pyright"
   },
   automatic_installation = false,
 })
@@ -40,6 +41,7 @@ local servers = {
   volar = require("lsp.config.volar"),
   rust_analyzer = require("lsp.config.rust"),
   -- taplo = "",
+  pyright = "",
 }
 
 for name, config in pairs(servers) do
