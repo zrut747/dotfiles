@@ -7,6 +7,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local paccker_bootstrap
 if fn.empty(fn.glob(install_path)) > 0 then
+  vim.notify("使用github镜像：" .. mirror)
   vim.notify("正在安装Pakcer.nvim，请稍后...")
   paccker_bootstrap = fn.system({
     "git",
