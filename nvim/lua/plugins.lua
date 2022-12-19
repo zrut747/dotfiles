@@ -142,7 +142,7 @@ packer.startup({
     max_jobs = 16,
     -- 自定义源
     git = {
-      default_url_format = string.format("%s/%%s", mirror)
+      default_url_format = mirror .. '/%s'
       -- default_url_format = "https://hub.nuaa.cf/%s"
     },
   },
