@@ -34,15 +34,6 @@ if not status_ok then
   return
 end
 
--- Have packer use a popup window
-packer.init({
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
-    end,
-  },
-})
-
 packer.startup({
   function(use)
     -- Packer can manage itself
@@ -138,12 +129,15 @@ packer.startup({
     use("karb94/neoscroll.nvim")
   end,
   config = {
+    -- 浮动显示
+    display = {
+      open_fn = require('packer.util').float,
+    },
     -- 最大并发数
     max_jobs = 16,
     -- 自定义源
     git = {
-      default_url_format = mirror .. '/%s'
-      -- default_url_format = "https://hub.nuaa.cf/%s"
+      default_url_format = mirror .. '/%s',
     },
   },
 })
