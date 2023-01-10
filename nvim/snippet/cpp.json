@@ -1,0 +1,41 @@
+{
+  "solve-once": {
+    "prefix": [
+      "solve-once"
+    ],
+    "body": [
+      "#include<bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "int main() {",
+      "  return 0;",
+      "}"
+    ],
+    "description": "create a template to solve problem once"
+  },
+  "solve-by-times": {
+    "prefix": [
+      "solve-by-times"
+    ],
+    "body": [
+      "#include<bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "void solve();",
+      "",
+      "int main() {",
+      "  int T;",
+      "  cin >> T;",
+      "  while (T--) {",
+      "    solve();",
+      "  }",
+      "  return 0;",
+      "}",
+      "",
+      "void solve() {",
+      "",
+      "}"
+    ],
+    "description": "create a template to solve problem once"
+  }
+}

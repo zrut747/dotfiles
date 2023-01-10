@@ -4,6 +4,8 @@ if not status then
   return
 end
 
+vim.g.vsnip_snippet_dir = "~/.config/nvim/snippet"
+
 cmp.setup({
   -- 指定 snippet 引擎
   snippet = {
