@@ -8,6 +8,8 @@
       "using namespace std;",
       "",
       "int main() {",
+      "  ios::sync_with_stdio(false);",
+      "  cin.tie(0);",
       "  return 0;",
       "}"
     ],
@@ -24,6 +26,8 @@
       "void solve();",
       "",
       "int main() {",
+      "  ios::sync_with_stdio(false);",
+      "  cin.tie(0);",
       "  int T;",
       "  cin >> T;",
       "  while (T--) {",
