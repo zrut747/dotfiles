@@ -11,6 +11,7 @@ require("mason-lspconfig").setup({
     "bashls",
     "sumneko_lua",
     "rust_analyzer",
+    "clangd",
     "taplo",
     -- frontend
     "html",
@@ -42,6 +43,7 @@ local servers = {
   rust_analyzer = require("lsp.config.rust"),
   -- taplo = "",
   pyright = "",
+  clangd = "",
 }
 
 for name, config in pairs(servers) do
