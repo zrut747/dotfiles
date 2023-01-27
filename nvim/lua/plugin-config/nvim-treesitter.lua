@@ -28,11 +28,11 @@ require("nvim-treesitter.configs").setup {
     enable = true
   },
   -- 启动彩虹括号
-  -- rainbow = {
-  --   enable = true,
-  --   extended_mode = false,
-  --   max_file_lines = nil,
-  -- }
+  rainbow = {
+    enable = true,
+    extended_mode = false,
+    max_file_lines = nil,
+  }
 }
 -- 开启 Folding
 vim.wo.foldmethod = 'expr'

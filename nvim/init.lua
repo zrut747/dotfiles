@@ -2,8 +2,8 @@
 require("basic")
 -- 快捷键映射
 require("keybindings")
--- Packer插件管理
-require("plugins")
+-- 插件管理
+require("plugin-manager")
 -- 设置主题
 require("colorscheme")
 -- 自动命令
