@@ -57,7 +57,7 @@ lspkind.init({
   },
 })
 
-require("lspsaga").init_lsp_saga({})
+require("lspsaga").setup({})
 
 local M = {}
 -- 为 cmp.lua 提供参数格式
