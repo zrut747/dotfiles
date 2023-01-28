@@ -1,5 +1,5 @@
-local u = require("utils")
-local opts = require("lsp.config.default")
+local u = require("util")
+local opts = require("plugins.lsp.config.default")
 
 local rust_opts = {
   settings = {

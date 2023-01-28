@@ -1,7 +1,7 @@
-local u = require("utils")
-local opts = require("lsp.config.default")
+local u = require("util")
+local opts = require("plugins.lsp.config.default")
 
-local keybindings = require("keybindings")
+local keymaps = require("config.keymaps")
 local ts_utils = require("nvim-lsp-ts-utils")
 local ts_opts = {
   -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils/blob/main/lua/nvim-lsp-ts-utils/utils.lua
@@ -27,8 +27,9 @@ local ts_opts = {
     local function buf_set_keymap(...)
       vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
+
     -- 绑定快捷键
-    keybindings.mapLSP(buf_set_keymap)
+    keymaps.mapLSP(buf_set_keymap)
     -- defaults
     ts_utils.setup({
       debug = false,
@@ -81,7 +82,7 @@ local ts_opts = {
     -- required to fix code action ranges and filter diagnostics
     ts_utils.setup_client(client)
     -- no default maps, so you may want to define some here
-    -- keybindings.mapTsLSP(buf_set_keymap)
+    -- keymaps.mapTsLSP(buf_set_keymap)
   end,
 }
 

@@ -1,4 +1,4 @@
-local u = require("utils")
+local u = require("util")
 local opts = require("lsp.config.default")
 
 local emmet_opts = {

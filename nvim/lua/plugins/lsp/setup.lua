@@ -1,4 +1,4 @@
-local u = require("utils")
+local u = require("util")
 local github_mirror = u.github_mirror()
 require("mason").setup({
   github = {
@@ -32,15 +32,15 @@ local lspconfig = require("lspconfig")
 -- key 必须为下列网址列出的 server name，不可以随便写
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 local servers = {
-  sumneko_lua = require("lsp.config.lua"),
+  sumneko_lua = require("plugins.lsp.config.lua"),
   bashls = "",
   html = "",
-  cssls = require("lsp.config.css"),
+  cssls = require("plugins.lsp.config.css"),
   -- emmet_ls = require("lsp.config.emmet"),
-  jsonls = require("lsp.config.json"),
+  jsonls = require("plugins.lsp.config.json"),
   -- tsserver = require("lsp.config.ts"),
-  volar = require("lsp.config.volar"),
-  rust_analyzer = require("lsp.config.rust"),
+  volar = require("plugins.lsp.config.volar"),
+  rust_analyzer = require("plugins.lsp.config.rust"),
   -- taplo = "",
   pyright = "",
   clangd = "",
@@ -52,6 +52,6 @@ for name, config in pairs(servers) do
     config.on_setup(lspconfig[name])
   else
     -- 使用默认参数
-    lspconfig[name].setup(require("lsp.config.default"))
+    lspconfig[name].setup(require("plugins.lsp.config.default"))
   end
 end

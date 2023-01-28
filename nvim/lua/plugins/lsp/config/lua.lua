@@ -1,5 +1,5 @@
-local u = require("utils")
-local opts = require("lsp.config.default")
+local u = require("util")
+local opts = require("plugins.lsp.config.default")
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
 local runtime_path = vim.split(package.path, ";")
