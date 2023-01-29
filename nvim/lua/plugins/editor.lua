@@ -1,22 +1,15 @@
 return {
   {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
+      "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
     },
-    config = function()
-      require("nvim-tree").setup {
-        view = {
-          mappings = {
-            list = require("config.keymaps").nvimTreeList
-          }
-        },
-        -- 不显示 git 状态图标
-        git = {
-          enable = false
-        }
-      }
-    end
+    cmd = "Neotree",
+    keys = {
+      { "<A-m>", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+    },
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -45,20 +38,6 @@ return {
             require("telescope.themes").get_dropdown {
               -- even more opts
             }
-
-            -- pseudo code / specification for writing custom displays, like the one
-            -- for "codeactions"
-            -- specific_opts = {
-            --   [kind] = {
-            --     make_indexed = function(items) -> indexed_items, width,
-            --     make_displayer = function(widths) -> displayer
-            --     make_display = function(displayer) -> function(e)
-            --     make_ordinal = function(e) -> string
-            --   },
-            --   -- for example to disable the custom builtin "codeactions" display
-            --      do the following
-            --   codeactions = false,
-            -- }
           }
         },
       })

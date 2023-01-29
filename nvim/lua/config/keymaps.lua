@@ -36,9 +36,6 @@ local pluginKeys = {}
 map("n", "<Leader>z", ":foldclose<CR>", opt)
 map("n", "<Leader>Z", ":foldopen<CR>", opt)
 
--- nvim-tree
-map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
-
 -- leap
 map("n", "<Leader>f", "<Plug>(leap-forward-to)", opt)
 map("n", "<Leader>F", "<Plug>(leap-backward-to)", opt)
