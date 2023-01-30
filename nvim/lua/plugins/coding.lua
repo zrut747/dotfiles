@@ -15,9 +15,16 @@ return {
       -- 常见编程语言代码段
       "rafamadriz/friendly-snippets",
     },
-    config = function()
-      local cmp = require('cmp')
-      cmp.setup({
+    opts = function()
+      local cmp = require("cmp")
+      local feedkey = function(key, mode)
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+      end
+      local has_words_before = function()
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      end
+      return {
         -- 指定 snippet 引擎
         snippet = {
           expand = function(args)
@@ -34,18 +41,53 @@ return {
         }, { { name = "path" } }),
 
         -- 快捷键
-        mapping = require("config.keymaps").cmp(cmp),
-        -- 使用lspkind-nvim显示类型图标
-        formatting = require("plugins.lsp.ui").formatting,
-      })
+        mapping = {
+          ["<CR>"] = cmp.mapping.confirm({
+            select = true,
+            behavior = cmp.ConfirmBehavior.Replace,
+          }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif vim.fn["vsnip#available"](1) == 1 then
+              feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+            end
+          end, { "i", "s" }),
 
+          ["<S-Tab>"] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+              feedkey("<Plug>(vsnip-jump-prev)", "")
+            end
+          end, { "i", "s" }),
+        },
+        -- cmp提示显示lspkind类型图标
+        formatting = {
+          format = function(_, item)
+            local icons = require("config").icons.kinds
+            if icons[item.kind] then
+              item.kind = icons[item.kind] .. item.kind
+            end
+            return item
+          end,
+        },
+      }
+    end,
+
+    config = function(_, opts)
+      local cmp = require('cmp')
+      cmp.setup(opts)
       -- Use buffer source for `/`.
       cmp.setup.cmdline("/", {
         sources = {
           { name = "buffer" },
         },
       })
-
       -- Use cmdline & path source for ':'.
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
@@ -70,13 +112,10 @@ return {
     opts = {
       -- Module mappings. Use `''` (empty string) to disable one.
       mappings = {
-        -- Toggle comment (like `gcip` - comment inner paragraph) for both
         -- Normal and Visual modes
         comment = 'gc',
-
         -- Toggle comment on current line
         comment_line = 'gcc',
-
         -- Define 'comment' textobject (like `dgc` - delete whole comment block)
         textobject = 'gc',
       },

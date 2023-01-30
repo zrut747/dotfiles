@@ -3,8 +3,6 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    -- UI 增强
-    "onsails/lspkind-nvim",
     {
       "glepnir/lspsaga.nvim",
       event = "BufRead",
@@ -20,7 +18,6 @@ return {
   },
   config = function()
     require("plugins.lsp.setup")
-    -- require("plugins.lsp.cmp")
     require("plugins.lsp.ui")
     require("plugins.lsp.null-ls")
   end

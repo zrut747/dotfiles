@@ -44,10 +44,10 @@ null_ls.setup({
     diagnostics.eslint.with({
       prefer_local = "node_modules/.bin",
       cwd = h.cache.by_bufnr(function(params)
-          return u.root_pattern(
-              ".eslintrc",
-              ".eslintrcignore"
-          )(params.bufname)
+        return u.root_pattern(
+          ".eslintrc",
+          ".eslintrcignore"
+        )(params.bufname)
       end),
     }),
     -- code actions ---------------------
