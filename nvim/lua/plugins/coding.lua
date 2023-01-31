@@ -80,6 +80,8 @@ return {
     end,
 
     config = function(_, opts)
+      vim.g.vsnip_snippet_dir = "~/.config/nvim/snippet"
+
       local cmp = require('cmp')
       cmp.setup(opts)
       -- Use buffer source for `/`.

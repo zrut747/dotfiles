@@ -8,13 +8,13 @@ local opt = {
     -- 禁用格式化功能，交给专门插件插件处理
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
-    -- 绑定winbar
+
+    -- 绑定快捷键
     local function buf_set_keymap(...)
       vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
 
-    -- 绑定快捷键
-    require("config.keymaps").mapLSP(buf_set_keymap)
+    require("plugins.lsp.keymaps").mapLSP(buf_set_keymap)
   end,
 }
 

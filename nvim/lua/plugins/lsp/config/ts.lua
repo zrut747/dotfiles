@@ -1,7 +1,7 @@
 local u = require("util")
 local opts = require("plugins.lsp.config.default")
 
-local keymaps = require("config.keymaps")
+local keymaps = require("plugins.lsp.keymaps")
 local ts_utils = require("nvim-lsp-ts-utils")
 local ts_opts = {
   -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils/blob/main/lua/nvim-lsp-ts-utils/utils.lua
