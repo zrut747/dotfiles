@@ -177,6 +177,12 @@ return {
     end
   },
   {
+    "sindrets/diffview.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+  },
+  {
     "karb94/neoscroll.nvim",
     config = function()
       require("neoscroll").setup()
