@@ -23,3 +23,7 @@ zsh ~/.dotfiles/bootstrap.sh
 | 环境变量                             | 说明                                    | 默认值                            |
 |--------------------------------------|-----------------------------------------|-----------------------------------|
 | `DOT_GITHUB_MIRROR`                  | github 的镜像地址                       | `https://github.com`             |
+
+## 字体
+
+nvim 部分需要安装 NerdFont，我使用的是 CodeNewRoman NerdFont
