@@ -10,6 +10,16 @@ return {
     keys = {
       { "<A-m>", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
     },
+    opts = {
+      window = {
+        mappings = {
+          ["o"] = "open",
+        },
+      },
+    },
+    config = function(_, opts)
+      require("neo-tree").setup(opts)
+    end
   },
   {
     "nvim-telescope/telescope.nvim",
