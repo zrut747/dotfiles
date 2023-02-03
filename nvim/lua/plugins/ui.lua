@@ -1,26 +1,5 @@
 return {
   {
-    "rcarriga/nvim-notify",
-    keys = {
-      {
-        "<leader>un",
-        function()
-          require("notify").dismiss({ silent = true, pending = true })
-        end,
-        desc = "Delete all Notifications",
-      },
-    },
-    opts = {
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-    },
-  },
-  {
     "stevearc/dressing.nvim",
     lazy = true,
     init = function()
@@ -47,12 +26,21 @@ return {
         dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
         dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:h | :Neotree <CR>"),
         dashboard.button("l", "鈴 > Lazy", ":Lazy<CR>"),
-        dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+        dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
       }
       return dashboard
     end,
     config = function(_, dashboard)
       require("alpha").setup(dashboard.opts)
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "LazyVimStarted",
+        callback = function()
+          local stats = require("lazy").stats()
+          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+          dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+          pcall(vim.cmd.AlphaRedraw)
+        end,
+      })
     end
   },
   {
