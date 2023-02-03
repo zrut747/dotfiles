@@ -65,6 +65,7 @@ return {
               feedkey("<Plug>(vsnip-jump-prev)", "")
             end
           end, { "i", "s" }),
+          ['<A-.>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
         },
         -- cmp提示显示lspkind类型图标
         formatting = {
