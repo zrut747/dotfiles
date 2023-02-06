@@ -1,3 +1,5 @@
+local u = require("util")
+
 -- leader
 vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
@@ -8,7 +10,9 @@ local opt = {
 }
 
 -- 保存本地变量
-local map = vim.api.nvim_set_keymap
+local function map(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
 
 --------------------------------------------------------------------
 -- 使用 jk 退出 insert 模式
