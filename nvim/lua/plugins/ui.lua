@@ -123,6 +123,7 @@ return {
   },
   {
     "echasnovski/mini.indentscope",
+    enabled = false,
     event = "BufReadPre",
     opts = {
       symbol = "│",
@@ -137,6 +138,36 @@ return {
       })
       require("mini.indentscope").setup(opts)
     end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
+    opts = {
+      space_char_blankline = " ",
+      -- 用 treesitter 判断上下文
+      show_current_context = true,
+      show_current_context_start = true,
+      context_patterns = {
+        "class",
+        "function",
+        "method",
+        "element",
+        "^if",
+        "^while",
+        "^for",
+        "^object",
+        "^table",
+        "block",
+        "arguments",
+      },
+      -- :echo &filetype
+      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
+      -- 竖线样式
+      char = '│',
+    },
+    config = function(_, opts)
+      require("indent_blankline").setup(opts)
+    end
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -200,72 +231,9 @@ return {
     end
   },
   {
-    "echasnovski/mini.surround",
-    keys = function(plugin, keys)
-      -- Populate the keys based on the user's options
-      local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-      local mappings = {
-        { opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
-        { opts.mappings.delete, desc = "Delete surrounding" },
-        { opts.mappings.find, desc = "Find right surrounding" },
-        { opts.mappings.find_left, desc = "Find left surrounding" },
-        { opts.mappings.highlight, desc = "Highlight surrounding" },
-        { opts.mappings.replace, desc = "Replace surrounding" },
-        { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
-      }
-      return vim.list_extend(mappings, keys)
-    end,
-    opts = {
-      mappings = {
-        add = "gza", -- Add surrounding in Normal and Visual modes
-        delete = "gzd", -- Delete surrounding
-        find = "gzf", -- Find surrounding (to the right)
-        find_left = "gzF", -- Find surrounding (to the left)
-        highlight = "gzh", -- Highlight surrounding
-        replace = "gzr", -- Replace surrounding
-        update_n_lines = "gzn", -- Update `n_lines`
-      },
-    },
-    config = function(_, opts)
-      require("mini.surround").setup(opts)
-    end,
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup()
+    end
   },
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    event = "VeryLazy",
-    opts = {
-      direction = "float",
-      float_opts = {
-        border = "double",
-      },
-      -- function to run on opening the terminal
-      on_open = function(term)
-        vim.cmd("startinsert!")
-
-        -- <C-\><C-N> + q 关闭终端
-        vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-      end,
-      -- function to run on closing the terminal
-      on_close = function()
-        vim.cmd("startinsert!")
-      end,
-    },
-    config = function(_, opts)
-      require("toggleterm").setup(opts)
-      local Terminal = require("toggleterm.terminal").Terminal
-      local lazygit = Terminal:new({ cmd = 'lazygit' })
-      local terminal = Terminal:new()
-      local function _lazygit_toggle()
-        lazygit:toggle()
-      end
-
-      local function _terminal_toggle()
-        terminal:toggle()
-      end
-
-      vim.keymap.set("n", "<leader>lg", _lazygit_toggle, { desc = "Open Lazygit" })
-      vim.keymap.set("n", "<leader>lt", _terminal_toggle, { desc = "Open Terminal(root)" })
-    end,
-  }
 }

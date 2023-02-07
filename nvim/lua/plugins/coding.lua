@@ -110,28 +110,70 @@ return {
     end,
   },
   {
+    "echasnovski/mini.surround",
+    keys = function(plugin, keys)
+      -- Populate the keys based on the user's options
+      local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+      local mappings = {
+        { opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
+        { opts.mappings.delete, desc = "Delete surrounding" },
+        { opts.mappings.find, desc = "Find right surrounding" },
+        { opts.mappings.find_left, desc = "Find left surrounding" },
+        { opts.mappings.highlight, desc = "Highlight surrounding" },
+        { opts.mappings.replace, desc = "Replace surrounding" },
+        { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+      }
+      return vim.list_extend(mappings, keys)
+    end,
+    opts = {
+      mappings = {
+        add = "gza", -- Add surrounding in Normal and Visual modes
+        delete = "gzd", -- Delete surrounding
+        find = "gzf", -- Find surrounding (to the right)
+        find_left = "gzF", -- Find surrounding (to the left)
+        highlight = "gzh", -- Highlight surrounding
+        replace = "gzr", -- Replace surrounding
+        update_n_lines = "gzn", -- Update `n_lines`
+      },
+    },
+    config = function(_, opts)
+      require("mini.surround").setup(opts)
+    end,
+  },
+  {
     "echasnovski/mini.comment",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     event = "VeryLazy",
     opts = {
-      -- Module mappings. Use `''` (empty string) to disable one.
       mappings = {
-        -- Normal and Visual modes
-        comment = 'gc',
-        -- Toggle comment on current line
-        comment_line = 'gcc',
-        -- Define 'comment' textobject (like `dgc` - delete whole comment block)
-        textobject = 'gc',
+        comment = "gc",
+        comment_line = "gcc",
+        textobject = "gc",
       },
       -- Hook functions to be executed at certain stage of commenting
       hooks = {
         -- Before successful commenting. Does nothing by default.
-        pre = function() end,
+        pre = function()
+          require('ts_context_commentstring.internal').update_commentstring()
+        end,
         -- After successful commenting. Does nothing by default.
         post = function() end,
       },
     },
     config = function(_, opts)
       require("mini.comment").setup(opts)
+    end
+  },
+  {
+    "ggandor/leap.nvim",
+    keys = {
+      { "<leader>f", "<Plug>(leap-forward-to)", desc = "leap forward to ..." },
+      { "<leader>F", "<Plug>(leap-backward-to)", desc = "leap backward to ..." },
+    },
+    config = function()
+      require("leap")
     end
   },
 }

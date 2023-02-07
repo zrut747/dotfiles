@@ -49,6 +49,13 @@ return {
     indent = {
       enable = true
     },
+    -- 注释配置
+    context_commentstring = {
+      enable = true,
+      config = {
+        typescript = { __default = '// %s', __multiline = '/* %s */' }
+      }
+    },
   },
   config = function(_, opts)
     local u = require("util")
