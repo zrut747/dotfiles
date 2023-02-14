@@ -8,7 +8,7 @@ require("mason").setup({
 require("mason-lspconfig").setup({
   ensure_installed = {
     "bashls",
-    "sumneko_lua",
+    "lua_ls",
     "rust_analyzer",
     "clangd",
     "taplo",
@@ -31,7 +31,7 @@ local lspconfig = require("lspconfig")
 -- key 必须为下列网址列出的 server name，不可以随便写
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 local servers = {
-  sumneko_lua = require("plugins.lsp.config.lua"),
+  lua_ls = require("plugins.lsp.config.lua"),
   bashls = "",
   html = "",
   cssls = require("plugins.lsp.config.css"),
