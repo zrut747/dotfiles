@@ -78,3 +78,6 @@ vim.opt.showtabline = 2
 vim.opt.showmode = false
 -- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
+-- 配置代码折叠格式
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.opt.foldcolumn = '1'

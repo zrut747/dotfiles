@@ -150,6 +150,20 @@ return {
     end
   },
   {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      "kevinhwang91/promise-async",
+    },
+    opts = {
+      provider_selector = function(bufnr, filetype, buftype)
+        return { 'treesitter', 'indent' }
+      end
+    },
+    config = function(_, opts)
+      require("ufo").setup(opts)
+    end
+  },
+  {
     "LintaoAmons/scratch.nvim",
     opts = {
       scratch_file_dir = vim.fn.stdpath("cache") .. "/scratch.nvim", -- Where the scratch files will be saved
