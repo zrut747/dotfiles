@@ -1,5 +1,5 @@
 local u = require("util")
-local opts = require("lsp.config.default")
+local opts = require("plugins.lsp.config.default")
 
 local emmet_opts = {
   filetypes = {
