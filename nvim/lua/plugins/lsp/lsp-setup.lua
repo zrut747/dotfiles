@@ -1,29 +1,3 @@
-local u = require("util")
-local github_mirror = u.github_mirror()
-require("mason").setup({
-  github = {
-    download_url_template = string.format("%s/%%s/releases/download/%%s/%%s", github_mirror),
-  }
-})
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "bashls",
-    "lua_ls",
-    "rust_analyzer",
-    "clangd",
-    "taplo",
-    -- frontend
-    "html",
-    "cssls",
-    "emmet_ls",
-    "jsonls",
-    "tsserver",
-    "volar",
-    "pyright"
-  },
-  automatic_installation = false,
-})
-
 local lspconfig = require("lspconfig")
 
 -- 安装列表

@@ -2,8 +2,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
       -- Lua 增强
       "folke/lua-dev.nvim",
       -- TypeScript 增强
@@ -16,7 +14,7 @@ return {
         virtual_text = true,
         signs = true,
         update_in_insert = false,
-      }
+      },
     },
     config = function(_, opts)
       vim.diagnostic.config(opts.diagnostics)
@@ -26,75 +24,55 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
 
-      require("plugins.lsp.setup")
-    end
+      require("plugins.lsp.lsp-setup")
+    end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("plugins.lsp.null-ls-setup")
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "jay-babu/mason-null-ls.nvim",
+    },
     opts = function()
-      local null_ls = require("null-ls")
-
-      local formatting = null_ls.builtins.formatting
-      local diagnostics = null_ls.builtins.diagnostics
-      local code_actions = null_ls.builtins.code_actions
-
-      local h = require("null-ls.helpers")
-      local u = require("null-ls.utils")
+      local github_mirror = require("util").github_mirror()
       return {
-        debug = false,
-        sources = {
-          -- frontend
-          formatting.prettier.with({
-            filetypes = {
-              "javascript",
-              "javascriptreact",
-              "typescript",
-              "typescriptreact",
-              "vue",
-              "css",
-              "scss",
-              "less",
-              "html",
-              "json",
-              "markdown",
-            },
-            prefer_local = "node_modules/.bin",
-          }),
-          -- rust
-          -- rustup component add rustfmt
-          formatting.rustfmt,
-
-          -- Python
-          -- pip install black
-          -- asdf reshim python
-          formatting.black.with({ extra_args = { "--fast" } }),
-
-          -- Diagnostics  ---------------------
-          diagnostics.eslint.with({
-            prefer_local = "node_modules/.bin",
-            cwd = h.cache.by_bufnr(function(params)
-              return u.root_pattern(
-                ".eslintrc",
-                ".eslintrcignore"
-              )(params.bufname)
-            end),
-          }),
-          -- code actions ---------------------
-          code_actions.eslint.with({
-            prefer_local = "node_modules/.bin",
-          }),
+        mason_opts = {
+          github = {
+            download_url_template = string.format("%s/%%s/releases/download/%%s/%%s", github_mirror),
+          },
         },
-        -- #{m}: message
-        -- #{s}: source name (defaults to null-ls if not specified)
-        -- #{c}: code (if available)
-        diagnostics_format = "[#{s}] #{m}",
-        on_attach = function(_)
-          vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()']])
-        end,
+        lsp_opts = {
+          ensure_installed = {
+            "bashls",
+            "clangd",
+            "lua_ls",
+            "rust_analyzer",
+            "pyright",
+            "taplo",
+            -- frontend
+            "html",
+            "cssls",
+            "emmet_ls",
+            "jsonls",
+            "tsserver",
+            "volar",
+          },
+        },
+        null_ls_opts = {
+          ensure_installed = { "stylua" },
+        },
       }
     end,
     config = function(_, opts)
-      require("null-ls").setup(opts)
+      require("mason").setup(opts.mason_opts)
+      require("mason-lspconfig").setup(opts.lsp_opts)
+      require("mason-null-ls").setup(opts.null_ls_opts)
     end,
   },
   {
@@ -102,14 +80,14 @@ return {
     event = "BufRead",
     config = function()
       require("lspsaga").setup()
-    end
+    end,
   },
   {
     "folke/neodev.nvim",
     opts = {
       experimental = {
-        pathStrict = true
-      }
-    }
+        pathStrict = true,
+      },
+    },
   },
 }
