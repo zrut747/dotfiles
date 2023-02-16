@@ -5,13 +5,14 @@ local lspconfig = require("lspconfig")
 -- key 必须为下列网址列出的 server name，不可以随便写
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 local servers = {
+  clangd = require("plugins.lsp.config.clangd"),
   lua_ls = require("plugins.lsp.config.lua"),
   bashls = "",
   html = "",
   cssls = require("plugins.lsp.config.css"),
   emmet_ls = require("plugins.lsp.config.emmet"),
   jsonls = require("plugins.lsp.config.json"),
-  -- tsserver = require("lsp.config.ts"),
+  -- tsserver = require("plugins.lsp.config.ts"),
   volar = require("plugins.lsp.config.volar"),
   rust_analyzer = require("plugins.lsp.config.rust"),
   -- taplo = "",

@@ -31,12 +31,12 @@ return {
             ["<C-u>"] = "preview_scrolling_up",
             ["<C-d>"] = "preview_scrolling_down",
           },
-        }
+        },
       },
     },
     config = function(_, opts)
       require("telescope").setup(opts)
-    end
+    end,
   },
   {
     "windwp/nvim-spectre",
@@ -54,7 +54,7 @@ return {
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
-    end
+    end,
   },
   {
     "akinsho/toggleterm.nvim",
@@ -80,7 +80,7 @@ return {
     config = function(_, opts)
       require("toggleterm").setup(opts)
       local Terminal = require("toggleterm.terminal").Terminal
-      local lazygit = Terminal:new({ cmd = 'lazygit' })
+      local lazygit = Terminal:new({ cmd = "lazygit" })
       local terminal = Terminal:new()
       local function _lazygit_toggle()
         lazygit:toggle()
@@ -93,5 +93,5 @@ return {
       vim.keymap.set("n", "<leader>lg", _lazygit_toggle, { desc = "Open Lazygit" })
       vim.keymap.set("n", "<leader>lt", _terminal_toggle, { desc = "Open Terminal(root)" })
     end,
-  }
+  },
 }

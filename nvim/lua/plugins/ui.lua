@@ -41,7 +41,7 @@ return {
           pcall(vim.cmd.AlphaRedraw)
         end,
       })
-    end
+    end,
   },
   {
     "utilyre/barbecue.nvim",
@@ -59,7 +59,7 @@ return {
     version = "*",
     config = function(_, opts)
       require("barbecue").setup(opts)
-    end
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -72,10 +72,10 @@ return {
       options = {
         -- 关闭 Tab 的命令
         close_command = function(bufnum)
-          require('mini.bufremove').delete(bufnum, false)
+          require("mini.bufremove").delete(bufnum, false)
         end,
         right_mouse_command = function(bufnum)
-          require('mini.bufremove').delete(bufnum, false)
+          require("mini.bufremove").delete(bufnum, false)
         end,
         -- 侧边栏配置
         -- 左侧让出 neo-tree 的位置，显示文字 File Explorer
@@ -91,7 +91,7 @@ return {
         hover = {
           enabled = true,
           delay = 100,
-          reveal = { 'close' }
+          reveal = { "close" },
         },
         -- 使用 nvim 内置 LSP
         diagnostics = "nvim_lsp",
@@ -101,8 +101,8 @@ return {
           local icons = require("config").icons
           local s = " "
           for e, n in pairs(diagnostics_dict) do
-            local sym = e == "error" and icons.diagnostics.Error or
-                (e == "warning" and icons.diagnostics.Warn or icons.diagnostics.Info)
+            local sym = e == "error" and icons.diagnostics.Error
+              or (e == "warning" and icons.diagnostics.Warn or icons.diagnostics.Info)
             s = s .. n .. sym
           end
           return s
@@ -111,7 +111,7 @@ return {
     },
     config = function(_, opts)
       require("bufferline").setup(opts)
-    end
+    end,
   },
   {
     "echasnovski/mini.bufremove",
@@ -123,12 +123,14 @@ return {
   },
   {
     "echasnovski/mini.indentscope",
-    enabled = false,
+    -- enabled = false,
     event = "BufReadPre",
-    opts = {
-      symbol = "│",
-      options = { try_as_border = true },
-    },
+    opts = function()
+      return {
+        symbol = "│",
+        options = { try_as_border = true },
+      }
+    end,
     config = function(_, opts)
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
@@ -140,36 +142,6 @@ return {
     end,
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
-    opts = {
-      space_char_blankline = " ",
-      -- 用 treesitter 判断上下文
-      show_current_context = true,
-      show_current_context_start = true,
-      context_patterns = {
-        "class",
-        "function",
-        "method",
-        "element",
-        "^if",
-        "^while",
-        "^for",
-        "^object",
-        "^table",
-        "block",
-        "arguments",
-      },
-      -- :echo &filetype
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-      -- 竖线样式
-      char = '│',
-    },
-    config = function(_, opts)
-      require("indent_blankline").setup(opts)
-    end
-  },
-  {
     "nvim-lualine/lualine.nvim",
     dependencies = {
       "arkav/lualine-lsp-progress",
@@ -178,8 +150,8 @@ return {
       local icons = require("config").icons
       return {
         options = {
-          section_separators = { left = '', right = '' },
-          component_separators = { left = '|', right = '|' },
+          section_separators = { left = "", right = "" },
+          component_separators = { left = "|", right = "|" },
           globalstatus = true,
         },
         extensions = { "nvim-tree" },
@@ -208,16 +180,16 @@ return {
             "filename",
             {
               "lsp_progress",
-              spinner_symbols = { '|', '/', '-', '\\' },
+              spinner_symbols = { "|", "/", "-", "\\" },
             },
           },
           lualine_x = {
             {
               "fileformat",
               symbols = {
-                unix = '', -- LF
-                dos = '', -- CRLF
-                mac = '', -- CR
+                unix = "", -- LF
+                dos = "", -- CRLF
+                mac = "", -- CR
               },
             },
             "encoding",
@@ -228,12 +200,12 @@ return {
     end,
     config = function(_, opts)
       require("lualine").setup(opts)
-    end
+    end,
   },
   {
     "karb94/neoscroll.nvim",
     config = function()
       require("neoscroll").setup()
-    end
+    end,
   },
 }

@@ -65,7 +65,7 @@ return {
               feedkey("<Plug>(vsnip-jump-prev)", "")
             end
           end, { "i", "s" }),
-          ['<A-.>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
+          ["<A-.>"] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
         },
         -- cmp提示显示lspkind类型图标
         formatting = {
@@ -83,7 +83,7 @@ return {
     config = function(_, opts)
       vim.g.vsnip_snippet_dir = "~/.config/nvim/snippet"
 
-      local cmp = require('cmp')
+      local cmp = require("cmp")
       cmp.setup(opts)
       -- Use buffer source for `/`.
       cmp.setup.cmdline("/", {
@@ -100,7 +100,7 @@ return {
           { name = "cmdline" },
         }),
       })
-    end
+    end,
   },
   {
     "echasnovski/mini.pairs",
@@ -152,28 +152,38 @@ return {
         comment_line = "gcc",
         textobject = "gc",
       },
-      -- Hook functions to be executed at certain stage of commenting
       hooks = {
-        -- Before successful commenting. Does nothing by default.
         pre = function()
-          require('ts_context_commentstring.internal').update_commentstring()
+          require("ts_context_commentstring.internal").update_commentstring()
         end,
-        -- After successful commenting. Does nothing by default.
         post = function() end,
       },
     },
     config = function(_, opts)
       require("mini.comment").setup(opts)
-    end
+      vim.keymap.set("n", "<C-_>", "gcc", { silent = true, remap = true })
+      vim.keymap.set("v", "<C-_>", "gc", { silent = true, remap = true })
+    end,
   },
   {
     "ggandor/leap.nvim",
     keys = {
-      { "<leader>f", "<Plug>(leap-forward-to)", desc = "leap forward to ..." },
-      { "<leader>F", "<Plug>(leap-backward-to)", desc = "leap backward to ..." },
+      { "s", "<Plug>(leap-forward-to)", desc = "leap forward to ..." },
+      { "S", "<Plug>(leap-backward-to)", desc = "leap backward to ..." },
     },
     config = function()
       require("leap")
-    end
+    end,
+  },
+  {
+    "ggandor/flit.nvim",
+    opts = {
+      keys = { f = "f", F = "F", t = "t", T = "T" },
+      labeled_modes = "v",
+      multiline = true,
+    },
+    config = function(_, opts)
+      require("flit").setup(opts)
+    end,
   },
 }

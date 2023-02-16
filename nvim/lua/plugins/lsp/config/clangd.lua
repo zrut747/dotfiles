@@ -6,10 +6,12 @@ local opt = {
   },
   on_attach = function(client, bufnr)
     -- 禁用格式化功能，交给专门插件插件处理
-    client.server_capabilities.documentFormattingProvider = false
-
     require("plugins.lsp.keymaps").map(bufnr)
   end,
 }
 
-return opt
+return {
+  on_setup = function(server)
+    server.setup(opt)
+  end,
+}

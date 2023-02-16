@@ -7,8 +7,10 @@ local autocmd = vim.api.nvim_create_autocmd
 -- 保存时自动格式化
 autocmd("BufWritePre", {
   group = myAutoGroup,
-  pattern = { "*.lua", "*.py", "*.sh", ".vue" },
-  callback = vim.lsp.buf.formatting_sync,
+  pattern = { "*.lua", "*.py", "*.sh", ".vue", "java", ".cpp" },
+  callback = function()
+    vim.lsp.buf.format({ async = true })
+  end,
 })
 
 -- 用o换行不要延续注释
@@ -17,17 +19,17 @@ autocmd("BufEnter", {
   pattern = "*",
   callback = function()
     vim.opt.formatoptions = vim.opt.formatoptions
-        - "o" -- O and o, don't continue comments
-        + "r" -- But do continue when pressing enter.
+      - "o" -- O and o, don't continue comments
+      + "r" -- But do continue when pressing enter.
   end,
 })
 
 -- wsl 使用宿主机剪切板
 if string.find(vim.fn.system("uname -r"), "microsoft") then
-  vim.cmd [[
+  vim.cmd([[
     augroup WSLYank
       autocmd!
       autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
     augroup END
-  ]]
+  ]])
 end

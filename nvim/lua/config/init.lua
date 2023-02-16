@@ -4,7 +4,7 @@ local u = require("util")
 
 local default = {
   colorscheme = function()
-    vim.cmd('colorscheme catppuccin')
+    vim.cmd("colorscheme catppuccin")
   end,
   icons = {
     diagnostics = {
@@ -83,8 +83,8 @@ M.setup = function()
 
   require("lazy").setup("plugins", {
     git = {
-      url_format = mirror .. '/%s.git',
-    }
+      url_format = mirror .. "/%s.git",
+    },
   })
 
   if type(M.colorscheme) == "function" then
@@ -92,7 +92,6 @@ M.setup = function()
   else
     vim.cmd.colorscheme(M.colorscheme)
   end
-
 end
 
 return M

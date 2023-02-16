@@ -2,8 +2,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- Lua 增强
-      "folke/lua-dev.nvim",
       -- TypeScript 增强
       "jose-elias-alvarez/nvim-lsp-ts-utils",
       -- json增强

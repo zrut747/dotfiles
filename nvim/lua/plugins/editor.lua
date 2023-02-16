@@ -19,7 +19,7 @@ return {
     },
     config = function(_, opts)
       require("neo-tree").setup(opts)
-    end
+    end,
   },
   {
     "folke/todo-comments.nvim",
@@ -37,7 +37,7 @@ return {
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
         NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-      }
+      },
     },
     config = function(_, opts)
       require("todo-comments").setup(opts)
@@ -47,7 +47,7 @@ return {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup()
-    end
+    end,
   },
   {
     "RRethy/vim-illuminate",
@@ -56,7 +56,7 @@ return {
       delay = 200,
       filetypes_denylist = {
         "neo-tree",
-      }
+      },
     },
     config = function(_, opts)
       require("illuminate").configure(opts)
@@ -78,7 +78,7 @@ return {
     "karb94/neoscroll.nvim",
     config = function()
       require("neoscroll").setup()
-    end
+    end,
   },
   {
     "norcalli/nvim-colorizer.lua",
@@ -91,7 +91,7 @@ return {
         "less",
         "scss",
       })
-    end
+    end,
   },
   {
     "folke/todo-comments.nvim",
@@ -109,7 +109,7 @@ return {
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
         NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-      }
+      },
     },
     config = function(_, opts)
       require("todo-comments").setup(opts)
@@ -126,15 +126,17 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
+    event = "BufReadPost",
     config = function()
       require("gitsigns").setup()
-    end
+    end,
   },
   {
     "sindrets/diffview.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
     },
+    cmd = "DiffviewOpen",
   },
   {
     "norcalli/nvim-colorizer.lua",
@@ -147,7 +149,7 @@ return {
         "less",
         "scss",
       })
-    end
+    end,
   },
   {
     "kevinhwang91/nvim-ufo",
@@ -156,21 +158,25 @@ return {
     },
     opts = {
       provider_selector = function(bufnr, filetype, buftype)
-        return { 'treesitter', 'indent' }
-      end
+        return { "treesitter", "indent" }
+      end,
     },
     config = function(_, opts)
       require("ufo").setup(opts)
-    end
+    end,
   },
   {
     "LintaoAmons/scratch.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<M-C-o>", "<cmd>ScratchOpen<cr>", desc = "Open Old Scratch File" },
+    },
     opts = {
       scratch_file_dir = vim.fn.stdpath("cache") .. "/scratch.nvim", -- Where the scratch files will be saved
       filetypes = { "json", "xml", "lua", "js", "py", "sh", "vue", "rs" }, -- filetypes to select from
     },
     config = function(_, opts)
       require("scratch").setup(opts)
-    end
-  }
+    end,
+  },
 }
