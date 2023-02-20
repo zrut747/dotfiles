@@ -5,7 +5,6 @@ local opt = {
     debounce_text_changes = 150,
   },
   on_attach = function(client, bufnr)
-    -- 禁用格式化功能，交给专门插件插件处理
     require("plugins.lsp.keymaps").map(bufnr)
   end,
 }

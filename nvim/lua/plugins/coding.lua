@@ -15,6 +15,7 @@ return {
       -- 常见编程语言代码段
       "rafamadriz/friendly-snippets",
     },
+    event = "VeryLazy",
     opts = function()
       local cmp = require("cmp")
       local feedkey = function(key, mode)

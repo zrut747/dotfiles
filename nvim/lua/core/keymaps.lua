@@ -30,6 +30,3 @@ map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 -- 关闭其他标签页
 map("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
-
--- SymbolsOutline
-map("n", "<A-o>", ":Lspsaga outline<CR>", opt)

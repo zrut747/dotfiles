@@ -6,7 +6,10 @@ return {
       "jose-elias-alvarez/nvim-lsp-ts-utils",
       -- json增强
       "b0o/schemastore.nvim",
+      -- mason
+      "williamboman/mason.nvim",
     },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       diagnostics = {
         virtual_text = true,
@@ -27,12 +30,14 @@ return {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
+    event = {"BufReadPre", "BufNewFile" },
     config = function()
       require("plugins.lsp.null-ls-setup")
     end,
   },
   {
     "williamboman/mason.nvim",
+    cmd = "Mason",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "jay-babu/mason-null-ls.nvim",
@@ -75,13 +80,17 @@ return {
   },
   {
     "glepnir/lspsaga.nvim",
-    event = "BufRead",
+    event = {"BufReadPre", "BufNewFile" },
+    keys = {
+      { "<A-o>", "<cmd>Lspsaga outline<cr>", desc = "Lspsaga Outline" },
+    },
     config = function()
       require("lspsaga").setup()
     end,
   },
   {
     "folke/neodev.nvim",
+    event = {"BufReadPre", "BufNewFile" },
     opts = {
       experimental = {
         pathStrict = true,

@@ -156,6 +156,7 @@ return {
     dependencies = {
       "kevinhwang91/promise-async",
     },
+    event = "BufReadPost",
     opts = {
       provider_selector = function(bufnr, filetype, buftype)
         return { "treesitter", "indent" }
