@@ -98,7 +98,7 @@ return {
         -- 可选，显示 LSP 报错图标
         ---@diagnostic disable-next-line: unused-local
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
-          local icons = require("config").icons
+          local icons = require("core").icons
           local s = " "
           for e, n in pairs(diagnostics_dict) do
             local sym = e == "error" and icons.diagnostics.Error
@@ -147,7 +147,7 @@ return {
       "arkav/lualine-lsp-progress",
     },
     opts = function()
-      local icons = require("config").icons
+      local icons = require("core").icons
       return {
         options = {
           section_separators = { left = "", right = "" },

@@ -70,7 +70,7 @@ return {
         -- cmp提示显示lspkind类型图标
         formatting = {
           format = function(_, item)
-            local icons = require("config").icons.kinds
+            local icons = require("core").icons.kinds
             if icons[item.kind] then
               item.kind = icons[item.kind] .. item.kind
             end

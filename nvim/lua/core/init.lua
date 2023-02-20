@@ -60,9 +60,9 @@ local default = {
 M = u.merge(M, default)
 
 M.setup = function()
-  require("config.options")
-  require("config.keymaps")
-  require("config.autocmds")
+  require("core.options")
+  require("core.keymaps")
+  require("core.autocmds")
 
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   local mirror = u.github_mirror()
