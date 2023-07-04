@@ -1,9 +1,9 @@
-{
-  "solve-once": {
-    "prefix": [
-      "solve-once"
-    ],
-    "body": [
+return {
+  s({
+    trig = "solve-once",
+    dscr = "create a template to solve problem once",
+  }, {
+    t({
       "#include<bits/stdc++.h>",
       "using namespace std;",
       "#define ll long long",
@@ -12,15 +12,14 @@
       "  ios::sync_with_stdio(false);",
       "  cin.tie(0);",
       "  return 0;",
-      "}"
-    ],
-    "description": "create a template to solve problem once"
-  },
-  "solve-by-times": {
-    "prefix": [
-      "solve-by-times"
-    ],
-    "body": [
+      "}",
+    }),
+  }),
+  s({
+    trig = "solve-by-times",
+    dscr = "create a template to solve problem once",
+  }, {
+    t({
       "#include<bits/stdc++.h>",
       "using namespace std;",
       "#define ll long long",
@@ -40,8 +39,15 @@
       "",
       "void solve() {",
       "",
-      "}"
-    ],
-    "description": "create a template to solve problem once"
-  }
+      "}",
+    }),
+  }),
+  s("trigger", {
+    t({ "After expanding, the cursor is here ->" }),
+    i(1),
+    t({ "", "After jumping forward once, cursor is here ->" }),
+    i(2),
+    t({ "", "After jumping once more, the snippet is exited there ->" }),
+    i(0),
+  }),
 }
