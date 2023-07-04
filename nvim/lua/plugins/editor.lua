@@ -166,18 +166,4 @@ return {
       require("ufo").setup(opts)
     end,
   },
-  {
-    "LintaoAmons/scratch.nvim",
-    event = "VeryLazy",
-    keys = {
-      { "<M-C-o>", "<cmd>ScratchOpen<cr>", desc = "Open Old Scratch File" },
-    },
-    opts = {
-      scratch_file_dir = vim.fn.stdpath("cache") .. "/scratch.nvim", -- Where the scratch files will be saved
-      filetypes = { "json", "xml", "lua", "js", "py", "sh", "vue", "rs" }, -- filetypes to select from
-    },
-    config = function(_, opts)
-      require("scratch").setup(opts)
-    end,
-  },
 }
