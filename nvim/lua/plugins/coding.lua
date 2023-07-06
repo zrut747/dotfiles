@@ -168,24 +168,26 @@ return {
     end,
   },
   {
-    "ggandor/leap.nvim",
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
     keys = {
-      { "s", "<Plug>(leap-forward-to)", desc = "leap forward to ..." },
-      { "S", "<Plug>(leap-backward-to)", desc = "leap backward to ..." },
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
     },
-    config = function()
-      require("leap")
-    end,
-  },
-  {
-    "ggandor/flit.nvim",
-    opts = {
-      keys = { f = "f", F = "F", t = "t", T = "T" },
-      labeled_modes = "v",
-      multiline = true,
-    },
-    config = function(_, opts)
-      require("flit").setup(opts)
-    end,
   },
 }
