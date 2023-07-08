@@ -83,8 +83,10 @@ return {
     end,
 
     config = function(_, opts)
+      -- 加载 friendly-snip
       require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/snippet" } })
+      -- 加载自定义代码段
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
 
       local cmp = require("cmp")
       cmp.setup(opts)
