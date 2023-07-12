@@ -2,6 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
     "HiPhish/nvim-ts-rainbow2",
+      "JoosepAlviste/nvim-ts-context-commentstring",
   },
   build = ":TSUpdate",
   opts = function()
@@ -62,6 +63,7 @@ return {
       -- 注释配置
       context_commentstring = {
         enable = true,
+        enable_autocmd = false,
         config = {
           typescript = { __default = "// %s", __multiline = "/* %s */" },
           cpp = { __default = "// %s", __multiline = "/* %s */" },
