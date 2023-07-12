@@ -51,15 +51,12 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
             elseif has_words_before() then
               cmp.complete()
             else
-              fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+              fallback()
             end
           end, { "i", "s" }),
-
           ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
               cmp.select_prev_item()
@@ -67,6 +64,15 @@ return {
               luasnip.jump(-1)
             end
           end, { "i", "s" }),
+
+          -- ctrl-j 跳到下一个位置
+          ["<C-j>"] = cmp.mapping(function()
+            if luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            end
+          end, { "i", "s" }),
+
+          -- alt-. 关闭提示
           ["<A-.>"] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
         },
         -- cmp提示显示lspkind类型图标
