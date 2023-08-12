@@ -51,10 +51,10 @@ return {
       -- Set menu
       dashboard.section.buttons.val = {
         dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("f", "  > Find file", ":cd $HOME/workspace | Telescope find_files<CR>"),
+        dashboard.button("f", "󰈞  > Find file", ":cd $HOME/workspace | Telescope find_files<CR>"),
         dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
         dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:h | :Neotree <CR>"),
-        dashboard.button("l", "鈴 > Lazy", ":Lazy<CR>"),
+        dashboard.button("l", "󰒲 > Lazy", ":Lazy<CR>"),
         dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
       }
       return dashboard
