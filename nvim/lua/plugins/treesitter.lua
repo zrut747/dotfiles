@@ -1,7 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    "HiPhish/nvim-ts-rainbow2",
       "JoosepAlviste/nvim-ts-context-commentstring",
   },
   build = ":TSUpdate",
@@ -30,20 +29,6 @@ return {
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
-      },
-      -- 彩虹括号
-      rainbow = {
-        enable = true,
-        -- Which query to use for finding delimiters
-        query = {
-          "rainbow-parens",
-          html = "rainbow-tags",
-          latex = "rainbow-blocks",
-        },
-        -- Highlight the entire buffer all at once
-        strategy = require("ts-rainbow.strategy.global"),
-        -- Do not enable for files with more than n lines, int
-        max_file_lines = nil,
       },
       -- 启用增量选择
       incremental_selection = {
