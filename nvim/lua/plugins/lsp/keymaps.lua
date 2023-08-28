@@ -22,7 +22,7 @@ M.map = function(buffer)
   -- reference
   map("n", "gr", "<cmd>Telescope lsp_references<CR>", { desc = "References", buffer = buffer })
   -- formatting
-  map("n", "<space>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format", buffer = buffer })
+  map("n", "<C-M-l>", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format", buffer = buffer })
 end
 
 return M

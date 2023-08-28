@@ -17,6 +17,7 @@ local servers = {
   rust_analyzer = require("plugins.lsp.config.rust"),
   -- taplo = "",
   pyright = "",
+  eslint = "",
 }
 
 for name, config in pairs(servers) do
