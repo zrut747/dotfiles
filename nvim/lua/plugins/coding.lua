@@ -178,7 +178,14 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      modes = {
+        search = {
+          -- `/`和`?`搜索时不启用flash.nvim
+          enabled = false,
+        }
+      }
+    },
     keys = {
       {
         "s",
