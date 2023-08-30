@@ -8,10 +8,6 @@ return {
     opts = function()
       local github_mirror = require("util").github_mirror()
       local lsp_list = require("plugins.mason.lsp-list")
-      -- local install_servers = {}
-      -- for _, ele in pairs(lsp_list) do
-      --   table.insert(install_servers, ele.name)
-      -- end
 
       return {
         mason_opts = {
