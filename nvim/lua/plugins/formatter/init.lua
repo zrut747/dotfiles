@@ -18,6 +18,7 @@ return {
         javascriptreact = { "prettierd" },
         typescriptreact = { "prettierd" },
         vue = { "prettierd" },
+        yaml = { "prettierd" },
       },
     }
   end,
