@@ -2,7 +2,6 @@ window:
   dimensions:
     columns: 100
     lines: 28
-  opacity: 0.9
 
 live_config_reload: true
 
