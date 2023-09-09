@@ -1,7 +1,7 @@
 local M = {}
 
 M.opts = {
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+  filetypes = { "vue" },
 }
 
 return M

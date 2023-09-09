@@ -6,10 +6,6 @@ M.opts = {
     "typescriptreact",
     "javascriptreact",
     "vue",
-    "css",
-    "sass",
-    "scss",
-    "less",
   }
 }
 
