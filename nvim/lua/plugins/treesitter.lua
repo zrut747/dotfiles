@@ -1,8 +1,5 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-  },
   build = ":TSUpdate",
   opts = function()
     return {
@@ -24,6 +21,7 @@ return {
         "python",
         "markdown",
         "markdown_inline",
+        "vimdoc"
       },
       -- 启用代码高亮功能
       highlight = {
@@ -43,15 +41,6 @@ return {
       -- 启用基于Treesitter的代码格式化
       indent = {
         enable = true,
-      },
-      -- 注释配置
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-        config = {
-          typescript = { __default = "// %s", __multiline = "/* %s */" },
-          cpp = { __default = "// %s", __multiline = "/* %s */" },
-        },
       },
     }
   end,

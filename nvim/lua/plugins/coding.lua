@@ -152,6 +152,12 @@ return {
     end,
   },
   {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+  {
     "echasnovski/mini.comment",
     dependencies = {
       "JoosepAlviste/nvim-ts-context-commentstring",
@@ -165,7 +171,7 @@ return {
       },
       options = {
         custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+          return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
         end,
       },
     },
@@ -183,8 +189,8 @@ return {
         search = {
           -- `/`和`?`搜索时不启用flash.nvim
           enabled = false,
-        }
-      }
+        },
+      },
     },
     keys = {
       {
