@@ -13,4 +13,4 @@ autoload -U colors && colors
 export DOT_GITHUB_MIRROR=${DOT_GITHUB_MIRROR:-"https://github.com"}
 
 source $DOTDIR/zsh/plugin.zsh
-source $DOTDIR/aliases/aliases.sh
+source $DOTDIR/zsh/alias.zsh

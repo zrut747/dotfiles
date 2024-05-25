@@ -28,13 +28,10 @@ plugins=(
 
   # load these at hypersonic load speeds with zsh-defer
   romkatv/zsh-defer
-  rupa/z
+  agkozak/zsh-z
   peterhurford/up.zsh
   zsh-users/zsh-autosuggestions
   zdharma-continuum/fast-syntax-highlighting
   SukkaW/zsh-proxy
 )
 plugin-load $plugins
-
-# change the escape key to `jk` in insert mode
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
