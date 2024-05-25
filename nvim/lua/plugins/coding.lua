@@ -14,6 +14,7 @@ return {
       "hrsh7th/cmp-nvim-lsp-signature-help", -- { name = "nvim_lsp_signature_help" }
       -- 常见编程语言代码段
       "rafamadriz/friendly-snippets",
+      "onsails/lspkind.nvim",
     },
     event = "VeryLazy",
     opts = function()
@@ -24,6 +25,7 @@ return {
 
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local lspkind = require("lspkind")
 
       return {
         -- 指定 snippet 引擎
@@ -51,43 +53,31 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
+            elseif vim.snippet and vim.snippet.active({ direction = 1 }) then
+              vim.snippet.jump(1)
             elseif has_words_before() then
               cmp.complete()
             else
               fallback()
             end
           end, { "i", "s" }),
-          ["<S-Tab>"] = cmp.mapping(function()
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
+            elseif vim.snippet and vim.snippet.active({ direction = -1 }) then
+              vim.snippet.jump(-1)
+            else
+              fallback()
             end
           end, { "i", "s" }),
-
-          -- ctrl-j 跳到下一个位置
-          ["<C-j>"] = cmp.mapping(function()
-            if luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            end
-          end, { "i", "s" }),
-
           -- alt-. 关闭提示
           ["<A-.>"] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
         },
-        -- cmp提示显示lspkind类型图标
         formatting = {
-          format = function(_, item)
-            local icons = require("core").icons.kinds
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
-            return item
-          end,
+          format = lspkind.cmp_format(),
         },
       }
     end,
-
     config = function(_, opts)
       -- 加载 friendly-snip
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -152,33 +142,10 @@ return {
     end,
   },
   {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    opts = {
-      enable_autocmd = false,
-    },
-  },
-  {
-    "echasnovski/mini.comment",
-    dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-    },
+    "folke/ts-comments.nvim",
     event = "VeryLazy",
-    opts = {
-      mappings = {
-        comment = "gc",
-        comment_line = "gcc",
-        textobject = "gc",
-      },
-      options = {
-        custom_commentstring = function()
-          return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
-        end,
-      },
-    },
-    config = function(_, opts)
-      require("mini.comment").setup(opts)
-      vim.keymap.set("n", "<C-_>", "gcc", { silent = true, remap = true })
-      vim.keymap.set("v", "<C-_>", "gc", { silent = true, remap = true })
+    config = function()
+      require("ts-comments").setup()
     end,
   },
   {

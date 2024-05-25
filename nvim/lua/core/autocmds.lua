@@ -9,18 +9,20 @@ autocmd("BufEnter", {
   group = myAutoGroup,
   pattern = "*",
   callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions
-      - "o" -- O and o, don't continue comments
-      + "r" -- But do continue when pressing enter.
+    -- O and o, don't continue comments
+    vim.opt.formatoptions:remove("o")
+    -- But do continue when pressing enter.
+    vim.opt.formatoptions:append("r")
   end,
 })
 
 -- wsl 使用宿主机剪切板
-if string.find(vim.fn.system("uname -r"), "microsoft") then
-  vim.cmd([[
-    augroup WSLYank
-      autocmd!
-      autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
-    augroup END
-  ]])
+if vim.fn.has("wsl") == 1 then
+  autocmd("TextYankPost", {
+    group = myAutoGroup,
+    pattern = "*",
+    callback = function()
+      vim.fn.system("/mnt/c/windows/system32/clip.exe", vim.fn.getreg('"'))
+    end,
+  })
 end

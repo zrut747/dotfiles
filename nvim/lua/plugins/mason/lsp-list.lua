@@ -8,6 +8,7 @@ return {
   "cssls",
   "emmet_ls",
   "jsonls",
+  "eslint",
   "yamlls",
   "tsserver",
   "volar"

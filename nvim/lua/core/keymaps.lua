@@ -24,3 +24,6 @@ map("n", "<leader>bh", ":BufferLineCloseLeft<CR>")
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>")
 -- 关闭其他标签页
 map("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
+
+-- 注释
+map({ "n", "v" }, "<C-_>", "gcc", { remap = true })

@@ -19,15 +19,14 @@ return {
     "rcarriga/nvim-notify",
     config = function()
       -- vim.notify = require("notify")
-    end
+    end,
   },
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
     event = "LspAttach",
-    config = function ()
+    config = function()
       require("fidget").setup()
-    end
+    end,
   },
   {
     "goolord/alpha-nvim",
@@ -77,22 +76,18 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    version = "^3.0.0",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       "echasnovski/mini.bufremove",
     },
+    -- branch = "main",
     opts = {
       options = {
         -- 关闭 Tab 的命令
         close_command = function(bufnum)
           require("mini.bufremove").delete(bufnum, false)
         end,
-        right_mouse_command = function(bufnum)
-          require("mini.bufremove").delete(bufnum, false)
-        end,
         -- 侧边栏配置
-        -- 左侧让出 neo-tree 的位置，显示文字 File Explorer
         offsets = {
           {
             filetype = "neo-tree",
@@ -107,20 +102,6 @@ return {
           delay = 100,
           reveal = { "close" },
         },
-        -- 使用 nvim 内置 LSP
-        diagnostics = "nvim_lsp",
-        -- 可选，显示 LSP 报错图标
-        ---@diagnostic disable-next-line: unused-local
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-          local icons = require("core").icons
-          local s = " "
-          for e, n in pairs(diagnostics_dict) do
-            local sym = e == "error" and icons.diagnostics.Error
-              or (e == "warning" and icons.diagnostics.Warn or icons.diagnostics.Info)
-            s = s .. n .. sym
-          end
-          return s
-        end,
       },
     },
     config = function(_, opts)
@@ -168,7 +149,7 @@ return {
           component_separators = { left = "|", right = "|" },
           globalstatus = true,
         },
-        extensions = { "nvim-tree" },
+        extensions = { "neo-tree" },
         sections = {
           lualine_b = {
             "branch",
