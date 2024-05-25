@@ -6,13 +6,12 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     opts = function()
-      local github_mirror = require("util").github_mirror()
       local lsp_list = require("plugins.mason.lsp-list")
 
       return {
         mason_opts = {
           github = {
-            download_url_template = string.format("%s/%%s/releases/download/%%s/%%s", github_mirror),
+            download_url_template = "https://github.com/%s/releases/download/%s/%s",
           },
         },
         lsp_opts = {

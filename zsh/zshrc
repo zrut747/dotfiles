@@ -9,8 +9,5 @@ setopt appendhistory
 # print prompt with colors
 autoload -U colors && colors
 
-# DOT_GITHUB_MIRROR 默认值
-export DOT_GITHUB_MIRROR=${DOT_GITHUB_MIRROR:-"https://github.com"}
-
 source $DOTDIR/zsh/plugin.zsh
 source $DOTDIR/zsh/alias.zsh

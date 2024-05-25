@@ -19,14 +19,14 @@ sed -i "\:$DOTDIR/tmux/tmux.conf:d" ~/.tmux.conf
 echo "source-file $DOTDIR/tmux/tmux.conf" >> ~/.tmux.conf
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   echo "Cloning tpm..."
-  git clone -q --depth 1 $DOT_GITHUB_MIRROR/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  git clone -q --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # source alacritty.yml
 if [ ! -d "$HOME/.config/alacritty" ]; then
   mkdir $HOME/.config/alacritty
 fi
-cp -f $DOTDIR/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+cp -f $DOTDIR/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 # source lazygit.yml
 if [ ! -d "$HOME/.config/lazygit" ]; then

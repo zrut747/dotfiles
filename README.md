@@ -16,14 +16,6 @@ git clone https://github.com/zrut747/dotfiles.git ~/.dotfiles
 zsh ~/.dotfiles/bootstrap.sh
 ```
 
-## 环境变量
-
-环境变量提供了一定的定制能力，需要写在 `~/.zshrc` 中 `source $DOTDIR/zsh/zshrc` 语句前面
-
-| 环境变量                             | 说明                                    | 默认值                            |
-|--------------------------------------|-----------------------------------------|-----------------------------------|
-| `DOT_GITHUB_MIRROR`                  | github 的镜像地址                       | `https://github.com`             |
-
 ## 字体
 
 nvim 部分需要安装 NerdFont，我使用的是 CodeNewRoman NerdFont

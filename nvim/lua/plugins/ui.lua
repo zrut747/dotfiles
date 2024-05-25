@@ -138,9 +138,6 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "arkav/lualine-lsp-progress",
-    },
     opts = function()
       local icons = require("core").icons
       return {

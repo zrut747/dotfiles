@@ -45,12 +45,6 @@ return {
     }
   end,
   config = function(_, opts)
-    local u = require("util")
-    local github_mirror = u.github_mirror()
-    -- local github_mirror = "https://hub.nuaa.cf"
-    for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
-      config.install_info.url = config.install_info.url:gsub("https://github.com", github_mirror)
-    end
     require("nvim-treesitter.configs").setup(opts)
     -- 开启 Folding
     vim.wo.foldmethod = "expr"
