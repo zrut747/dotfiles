@@ -5,6 +5,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
+# disable AUTO_CD
+unsetopt AUTO_CD
 
 # print prompt with colors
 autoload -U colors && colors
