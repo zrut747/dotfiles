@@ -8,12 +8,10 @@ columns = 110
 lines = 30
 
 
-[shell]
-program = "wsl ~"
+#[shell]
+# program = "wsl ~"
 
 # KDE Breeze (Ported from Konsole)
-
-
 # Default colors
 [colors.primary]
 
