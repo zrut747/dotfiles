@@ -2,12 +2,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- TypeScript 增强
-      "jose-elias-alvarez/nvim-lsp-ts-utils",
-      -- json增强
-      "b0o/schemastore.nvim",
       -- mason
-      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
     },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
@@ -31,9 +27,6 @@ return {
   {
     "glepnir/lspsaga.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    keys = {
-      { "<A-o>", "<cmd>Lspsaga outline<cr>", desc = "Lspsaga Outline" },
-    },
     config = function()
       require("lspsaga").setup()
     end,

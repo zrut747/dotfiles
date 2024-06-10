@@ -2,22 +2,24 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
     dependencies = {
-      "williamboman/mason-lspconfig.nvim",
+      "williamboman/mason.nvim",
     },
     opts = function()
       local lsp_list = require("plugins.mason.lsp.lsp-list")
-
       return {
-        lsp_opts = {
-          ensure_installed = lsp_list,
-        },
+        ensure_installed = lsp_list,
       }
     end,
     config = function(_, opts)
-      require("mason").setup()
-      require("mason-lspconfig").setup(opts.lsp_opts)
-
+      -- 安装LSP
+      require("mason-lspconfig").setup(opts)
       -- 安装formatter
       local formatter_list = require("plugins.mason.formatting.formatter-list")
       local mason_registry = require("mason-registry")
