@@ -6,6 +6,6 @@ return {
     debounce_text_changes = 150,
   },
   on_attach = function(client, bufnr)
-    require("plugins.lsp.keymaps").map(bufnr)
+    require("plugins.mason.lsp.keymaps").map(bufnr)
   end,
 }

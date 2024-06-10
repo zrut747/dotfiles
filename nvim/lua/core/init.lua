@@ -43,7 +43,12 @@ M.setup = function()
   end
   vim.opt.rtp:prepend(lazypath)
 
-  require("lazy").setup("plugins")
+  require("lazy").setup({
+    spec = {
+      { import = "plugins" },
+      { import = "plugins.mason" },
+    },
+  })
 
   if type(M.colorscheme) == "function" then
     M.colorscheme()

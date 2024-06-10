@@ -1,12 +1,12 @@
 local lspconfig = require("lspconfig")
 local u = require("util")
 
-local default_config = require("plugins.lsp.config.default")
-local lsp_list = require("plugins.mason.lsp-list")
+local default_config = require("plugins.mason.lsp.config.default")
+local lsp_list = require("plugins.mason.lsp.lsp-list")
 
 for _, ele in pairs(lsp_list) do
   local opts = {}
-  local status, config = pcall(require, "plugins.lsp.config." .. ele)
+  local status, config = pcall(require, "plugins.mason.lsp.config." .. ele)
   if not status then
     opts = {}
   else

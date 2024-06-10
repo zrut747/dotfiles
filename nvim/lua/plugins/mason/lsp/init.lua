@@ -25,7 +25,7 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
 
-      require("plugins.lsp.lsp-setup")
+      require("plugins.mason.lsp.lsp-setup")
     end,
   },
   {
