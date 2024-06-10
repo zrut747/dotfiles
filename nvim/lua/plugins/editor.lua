@@ -81,20 +81,10 @@ return {
     end,
   },
   {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup({
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact",
-        "vue",
-        "less",
-        "scss",
-      })
-    end,
+    "brenoprata10/nvim-highlight-colors",
+    config = function ()
+      require("nvim-highlight-colors").setup()
+    end
   },
   {
     "folke/trouble.nvim",
@@ -118,19 +108,6 @@ return {
       "nvim-lua/plenary.nvim",
     },
     cmd = "DiffviewOpen",
-  },
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup({
-        "css",
-        "javascript",
-        "typescript",
-        "vue",
-        "less",
-        "scss",
-      })
-    end,
   },
   {
     "kevinhwang91/nvim-ufo",
