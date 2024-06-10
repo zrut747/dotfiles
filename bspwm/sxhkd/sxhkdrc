@@ -127,3 +127,7 @@ XF86AudioLowerVolume
   amixer -q -D pulse sset Master 5%- unmute
 XF86AudioRaiseVolume
   amixer -q -D pulse sset Master 5%+ unmute
+
+# flameshot
+ctrl + alt + z
+  flameshot gui
