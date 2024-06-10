@@ -15,7 +15,6 @@ M.opts = {
         library = {
           "/usr/share/nvim/runtime/lua",
           "/usr/share/nvim/runtime/lua/lsp",
-          "/usr/share/awesome/lib",
         },
       },
       completion = {
@@ -24,12 +23,8 @@ M.opts = {
       diagnostics = {
         enable = true,
         globals = {
-    --     -- vim全局配置
+          -- vim全局配置
           "vim",
-          -- awesome全局配置
-          "awesome",
-          "client",
-          "root",
         },
       },
       telemetry = {
