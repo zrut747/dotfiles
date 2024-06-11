@@ -131,3 +131,7 @@ XF86AudioRaiseVolume
 # flameshot
 ctrl + alt + z
   flameshot gui
+
+# toggle toggle polybar
+ctrl + alt + p
+  bash ~/.config/bspwm/scripts/toggle_polybar.sh

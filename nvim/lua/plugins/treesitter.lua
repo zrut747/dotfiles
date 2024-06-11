@@ -46,10 +46,5 @@ return {
   end,
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
-    -- 开启 Folding
-    vim.wo.foldmethod = "expr"
-    vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
-    -- 默认不要折叠
-    vim.wo.foldlevel = 99
   end,
 }

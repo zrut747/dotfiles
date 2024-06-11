@@ -18,7 +18,7 @@ return {
   {
     "rcarriga/nvim-notify",
     config = function()
-      -- vim.notify = require("notify")
+      vim.notify = require("notify")
     end,
   },
   {
@@ -60,7 +60,7 @@ return {
     "utilyre/barbecue.nvim",
     dependencies = {
       "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
+      "nvim-tree/nvim-web-devicons",
     },
     opts = {
       symbols = {
@@ -191,9 +191,44 @@ return {
     end,
   },
   {
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup()
+    "echasnovski/mini.animate",
+    opts = function()
+      -- don't use animate when scrolling with the mouse
+      local mouse_scrolled = false
+      for _, scroll in ipairs({ "Up", "Down" }) do
+        local key = "<ScrollWheel" .. scroll .. ">"
+        vim.keymap.set({ "", "i" }, key, function()
+          mouse_scrolled = true
+          return key
+        end, { expr = true })
+      end
+      local animate = require("mini.animate")
+      return {
+        cursor = {
+          enable = false,
+        },
+        scroll = {
+          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
+          subscroll = animate.gen_subscroll.equal({
+            predicate = function(total_scroll)
+              if mouse_scrolled then
+                mouse_scrolled = false
+                return false
+              end
+              return total_scroll > 1
+            end,
+          }),
+        },
+        open = {
+          enable = false,
+        },
+        close = {
+          enable = false,
+        },
+      }
+    end,
+    config = function(_, opts)
+      require("mini.animate").setup(opts)
     end,
   },
 }

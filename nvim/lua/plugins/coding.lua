@@ -54,6 +54,7 @@ return {
             if cmp.visible() then
               cmp.select_next_item()
             elseif vim.snippet and vim.snippet.active({ direction = 1 }) then
+              -- TODO: 用的是native vim.snippet,不适配luasnip,等后续看有没有好用的snippet插件
               vim.snippet.jump(1)
             elseif has_words_before() then
               cmp.complete()
@@ -151,14 +152,6 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {
-      modes = {
-        search = {
-          -- `/`和`?`搜索时不启用flash.nvim
-          enabled = false,
-        },
-      },
-    },
     keys = {
       {
         "s",
@@ -166,7 +159,7 @@ return {
         function()
           require("flash").jump()
         end,
-        desc = "Flash",
+        desc = "flash",
       },
       {
         "S",
@@ -175,6 +168,14 @@ return {
           require("flash").treesitter()
         end,
         desc = "Flash Treesitter",
+      },
+    },
+    opts = {
+      modes = {
+        search = {
+          -- `/`和`?`搜索时不启用flash.nvim
+          enabled = false,
+        },
       },
     },
   },

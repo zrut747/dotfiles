@@ -4,14 +4,15 @@ $HOME/.config/bspwm/autostart.sh
 
 # pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2 3 4 5
+bspc monitor DP-4 -d 1 2 3 4 5
+bspc monitor HDMI-0 -d 6 7 8 9 0
 
-bspc config border_width         2
-bspc config window_gap          12
+bspc config border_width 2
+bspc config window_gap 12
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
-
-bspc rule -a Chromium desktop='^2'
-bspc rule -a Screenkey manage=off
+# rules
+bspc rule -a wechat desktop=2
+bspc rule -a yesplaymusic desktop=3

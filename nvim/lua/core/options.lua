@@ -36,8 +36,6 @@ opt.smartcase = true
 opt.hlsearch = false
 -- 边输入边搜索
 opt.incsearch = true
--- 命令行高为2，提供足够的显示空间
-opt.cmdheight = 1
 -- 当文件被外部程序修改时，自动加载
 opt.autoread = true
 -- 禁止折行
@@ -83,3 +81,4 @@ opt.clipboard = "unnamedplus"
 -- 配置代码折叠格式
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.foldcolumn = "1"
+opt.foldlevel = 99

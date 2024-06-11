@@ -34,17 +34,11 @@ require("util").on_attach(function(_, buffer)
   -- rename
   map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = buffer })
   -- code_action
-  -- mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
-  map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action", buffer = buffer })
+  map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code Action", buffer = buffer })
   -- code_definition
   map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition", buffer = buffer })
   -- hover
-  map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", buffer = buffer })
-  -- diagnostic
-  map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnostic", buffer = buffer })
-  map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Prev Diagnostic", buffer = buffer })
+  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", buffer = buffer })
   -- reference
   map("n", "gr", "<cmd>Telescope lsp_references<CR>", { desc = "References", buffer = buffer })
 end)
--- outline
-map("n", "<A-o>", "<cmd>Lspsaga outline<cr>", { desc = "Lspsaga Outline" })

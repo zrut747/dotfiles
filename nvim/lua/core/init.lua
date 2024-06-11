@@ -10,7 +10,7 @@ local default = {
     diagnostics = {
       Error = " ",
       Warn = " ",
-      Hint = " ",
+      Hint = "󰌵 ",
       Info = " ",
     },
     git = {

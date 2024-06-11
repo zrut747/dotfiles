@@ -6,8 +6,8 @@ return {
     },
     cmd = "Telescope",
     keys = {
-      { "<leader>tf", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-      { "<leader>tg", "<cmd>Telescope live_grep<cr>", desc = "Find in files(Grep)" },
+      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+      { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find in files(Grep)" },
     },
     opts = {
       defaults = {
