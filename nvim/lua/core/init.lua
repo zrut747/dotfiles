@@ -46,7 +46,7 @@ M.setup = function()
   require("lazy").setup({
     spec = {
       { import = "plugins" },
-      { import = "plugins.mason" },
+      { import = "plugins.lang" },
     },
   })
 

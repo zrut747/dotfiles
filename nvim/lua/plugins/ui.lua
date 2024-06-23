@@ -25,7 +25,7 @@ return {
     "j-hui/fidget.nvim",
     event = "LspAttach",
     config = function()
-      require("fidget").setup()
+      require("fidget").setup({})
     end,
   },
   {
@@ -72,6 +72,28 @@ return {
     version = "*",
     config = function(_, opts)
       require("barbecue").setup(opts)
+    end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = "Neotree",
+    keys = {
+      { "<A-m>", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+    },
+    opts = {
+      window = {
+        mappings = {
+          ["o"] = "open",
+        },
+      },
+    },
+    config = function(_, opts)
+      require("neo-tree").setup(opts)
     end,
   },
   {

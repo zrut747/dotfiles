@@ -1,36 +1,8 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    cmd = "Neotree",
-    keys = {
-      { "<A-m>", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
-    },
-    opts = {
-      window = {
-        mappings = {
-          ["o"] = "open",
-        },
-      },
-    },
-    config = function(_, opts)
-      require("neo-tree").setup(opts)
-    end,
-  },
-  {
     "folke/todo-comments.nvim",
     config = function()
       require("todo-comments").setup()
-    end,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
     end,
   },
   {
@@ -79,13 +51,6 @@ return {
     config = function()
       require("gitsigns").setup()
     end,
-  },
-  {
-    "sindrets/diffview.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    cmd = "DiffviewOpen",
   },
   {
     "kevinhwang91/nvim-ufo",

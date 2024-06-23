@@ -139,6 +139,9 @@ ctrl + alt + p
 # file-manager
 super + e
   thunar
+# edge
+super + z
+  microsoft-edge-stable
 #clipboard
 super + v
   rofi -modi "clipboard:greenclip print" -show clipboard

@@ -46,6 +46,13 @@ return {
     },
   },
   {
+    "sindrets/diffview.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cmd = "DiffviewOpen",
+  },
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
