@@ -135,3 +135,10 @@ ctrl + alt + z
 # toggle toggle polybar
 ctrl + alt + p
   bash ~/.config/bspwm/scripts/toggle_polybar.sh
+
+# file-manager
+super + e
+  thunar
+#clipboard
+super + v
+  rofi -modi "clipboard:greenclip print" -show clipboard
