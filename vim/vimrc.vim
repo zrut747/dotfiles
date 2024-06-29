@@ -1,5 +1,4 @@
 " 代码高亮
-" 代码高亮
 syntax on
 
 " 使用jj退出insert模式
@@ -32,6 +31,9 @@ endif
 
 " leader键绑定
 let mapleader = ";"
+
+" 退出vim
+nnoremap <leader>qq :wqa<CR>
 
 " 标签页切换
 nnoremap <leader>th :tabp<CR>
