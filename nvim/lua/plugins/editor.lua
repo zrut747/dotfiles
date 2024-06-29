@@ -32,9 +32,7 @@ return {
   },
   {
     "brenoprata10/nvim-highlight-colors",
-    config = function()
-      require("nvim-highlight-colors").setup()
-    end,
+    opts = {},
   },
   {
     "folke/trouble.nvim",
@@ -48,9 +46,11 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPost",
-    config = function()
-      require("gitsigns").setup()
-    end,
+    opts = {
+      current_line_blame_opts = {
+        delay = 300,
+      },
+    },
   },
   {
     "kevinhwang91/nvim-ufo",
