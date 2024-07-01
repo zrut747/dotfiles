@@ -46,13 +46,6 @@ return {
     },
   },
   {
-    "sindrets/diffview.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    cmd = "DiffviewOpen",
-  },
-  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
@@ -61,44 +54,6 @@ return {
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
-    end,
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    event = "VeryLazy",
-    opts = {
-      direction = "float",
-      float_opts = {
-        border = "double",
-      },
-      -- function to run on opening the terminal
-      on_open = function(term)
-        vim.cmd("startinsert!")
-
-        -- <C-\><C-N> + q 关闭终端
-        vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-      end,
-      -- function to run on closing the terminal
-      on_close = function()
-        vim.cmd("startinsert!")
-      end,
-    },
-    config = function(_, opts)
-      require("toggleterm").setup(opts)
-      local Terminal = require("toggleterm.terminal").Terminal
-      local lazygit = Terminal:new({ cmd = "lazygit" })
-      local terminal = Terminal:new()
-      local function _lazygit_toggle()
-        lazygit:toggle()
-      end
-
-      local function _terminal_toggle()
-        terminal:toggle()
-      end
-
-      vim.keymap.set("n", "<leader>lg", _lazygit_toggle, { desc = "Open Lazygit" })
-      vim.keymap.set("n", "<leader>lt", _terminal_toggle, { desc = "Open Terminal(root)" })
     end,
   },
 }

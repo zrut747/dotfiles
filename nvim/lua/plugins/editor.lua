@@ -1,11 +1,5 @@
 return {
   {
-    "folke/todo-comments.nvim",
-    config = function()
-      require("todo-comments").setup()
-    end,
-  },
-  {
     "RRethy/vim-illuminate",
     event = "BufReadPost",
     opts = {
@@ -36,11 +30,21 @@ return {
   },
   {
     "folke/trouble.nvim",
-    cmd = { "TroubleToggle", "Trouble" },
+    cmd = { "Trouble" },
     opts = { use_diagnostic_signs = true },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-      { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+    },
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = {
+      "folke/trouble.nvim",
+    },
+    opts = {},
+    keys = {
+      { "<leader>xt", "<cmd>Trouble todo toggle<cr>", desc = "Todo (Trouble)" },
     },
   },
   {
