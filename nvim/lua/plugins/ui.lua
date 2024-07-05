@@ -62,17 +62,7 @@ return {
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
     },
-    opts = {
-      symbols = {
-        modified = "●",
-        ellipsis = "…",
-        separator = ">",
-      },
-    },
-    version = "*",
-    config = function(_, opts)
-      require("barbecue").setup(opts)
-    end,
+    opts = {},
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -97,12 +87,37 @@ return {
     end,
   },
   {
+    "echasnovski/mini.bufremove",
+    keys = {
+      {
+        "<leader>bd",
+        function()
+          require("mini.bufremove").delete(0, false)
+        end,
+        desc = "Remove Buffer",
+      },
+      {
+        "<leader>bD",
+        function()
+          require("mini.bufremove").delete(0, true)
+        end,
+        desc = "Remove Buffer (Force)",
+      },
+    },
+  },
+  {
     "akinsho/bufferline.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      "echasnovski/mini.bufremove",
     },
-    -- branch = "main",
+    lazy = false,
+    keys = {
+      { "<C-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Move To Prev Buffer" },
+      { "<C-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Move To Next Buffer" },
+      { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", desc = "Remove Left Buffers" },
+      { "<leader>bl", "<cmd>BufferLineCloseRight<CR>", desc = "Remove Right Buffers" },
+      { "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", desc = "Remove Other Buffers" },
+    },
     opts = {
       options = {
         -- 关闭 Tab 的命令
@@ -126,21 +141,9 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      require("bufferline").setup(opts)
-    end,
-  },
-  {
-    "echasnovski/mini.bufremove",
-    -- stylua: ignore
-    keys = {
-      { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
-      { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
-    },
   },
   {
     "echasnovski/mini.indentscope",
-    -- enabled = false,
     event = "BufReadPre",
     opts = function()
       return {

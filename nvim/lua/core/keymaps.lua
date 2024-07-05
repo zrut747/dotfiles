@@ -15,16 +15,6 @@ map("n", "<leader>qq", ":wqa<CR>")
 map("n", "zc", ":foldclose<CR>")
 map("n", "zo", ":foldopen<CR>")
 
--- bufferline
--- 左右Tab切换
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>")
-map("n", "<C-l>", ":BufferLineCycleNext<CR>")
--- 关闭左/右侧标签页
-map("n", "<leader>bh", ":BufferLineCloseLeft<CR>")
-map("n", "<leader>bl", ":BufferLineCloseRight<CR>")
--- 关闭其他标签页
-map("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
-
 -- 注释
 map({ "n", "v" }, "<C-_>", "gcc", { remap = true })
 
