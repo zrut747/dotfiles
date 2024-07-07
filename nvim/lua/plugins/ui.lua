@@ -1,19 +1,8 @@
 return {
   {
     "stevearc/dressing.nvim",
-    lazy = true,
-    init = function()
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.select = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.select(...)
-      end
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.input = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.input(...)
-      end
-    end,
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "rcarriga/nvim-notify",
@@ -24,9 +13,7 @@ return {
   {
     "j-hui/fidget.nvim",
     event = "LspAttach",
-    config = function()
-      require("fidget").setup({})
-    end,
+    opts = {},
   },
   {
     "goolord/alpha-nvim",
@@ -62,6 +49,7 @@ return {
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
     },
+    event = "VeryLazy",
     opts = {},
   },
   {
