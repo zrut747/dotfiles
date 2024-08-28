@@ -11,5 +11,6 @@ return {
   "eslint",
   "yamlls",
   "tsserver",
-  "volar"
+  "volar",
+  "gopls"
 }

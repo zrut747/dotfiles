@@ -145,3 +145,6 @@ super + z
 #clipboard
 super + v
   rofi -modi "clipboard:greenclip print" -show clipboard
+#obsidian
+super + n
+  ~/softwares/obsidian/Obsidian-1.6.3.AppImage

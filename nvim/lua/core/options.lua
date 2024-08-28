@@ -65,7 +65,7 @@ opt.termguicolors = true
 opt.list = true
 -- 不可见字符的显示，这里只把空格显示为一个点
 opt.listchars:append("space:.")
-opt.listchars:append("tab:>~")
+opt.listchars:append("tab:>-")
 -- 补全增强
 opt.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|

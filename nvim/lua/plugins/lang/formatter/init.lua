@@ -19,6 +19,7 @@ return {
         typescriptreact = { "prettierd" },
         vue = { "prettierd" },
         yaml = { "prettierd" },
+        go = { "gofumpt" },
       },
     }
   end,

@@ -1,4 +1,5 @@
 return {
   "stylua",
-  "prettierd"
+  "prettierd",
+  "gofumpt"
 }
