@@ -1,18 +1,20 @@
 return {
   {
     "saghen/blink.cmp",
-    dependencies = "rafamadriz/friendly-snippets",
     version = "*",
+    dependencies = "rafamadriz/friendly-snippets",
     opts = {
       keymap = {
         preset = "none",
         ["<CR>"] = { "accept", "fallback" },
         ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
         ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
         ["<A-.>"] = { "hide", "show", "fallback" },
       },
       completion = {
-        documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true, auto_show_delay_ms = 200 },
         list = {
           selection = {
             -- 命令行模式下不默认选中提示
@@ -22,6 +24,7 @@ return {
           },
         },
       },
+      signature = { enabled = true },
     },
   },
   {
