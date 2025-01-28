@@ -22,7 +22,7 @@ map({ "n", "v" }, "<C-_>", "gcc", { remap = true })
 -- LSP
 require("util").on_attach(function(_, buffer)
   -- rename
-  map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = buffer })
+  map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = buffer })
   -- code_action
   map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code Action", buffer = buffer })
   -- code_definition

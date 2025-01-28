@@ -3,6 +3,7 @@ return {
     "saghen/blink.cmp",
     version = "*",
     dependencies = "rafamadriz/friendly-snippets",
+    event = "VeryLazy",
     opts = {
       keymap = {
         preset = "none",
@@ -11,13 +12,14 @@ return {
         ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
+        ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-f>"] = { "scroll_documentation_down", "fallback" },
         ["<A-.>"] = { "hide", "show", "fallback" },
       },
       completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
         list = {
           selection = {
-            -- 命令行模式下不默认选中提示
             preselect = function(ctx)
               return ctx.mode ~= "cmdline"
             end,
