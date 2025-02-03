@@ -8,10 +8,10 @@ local default = {
   end,
   icons = {
     diagnostics = {
-      Error = " ",
-      Warn = " ",
-      Hint = "󰌵 ",
-      Info = " ",
+      Error = "󰅚 ",
+      Warn = "󰀪 ",
+      Hint = "󰌶 ",
+      Info = " ",
     },
     git = {
       added = " ",

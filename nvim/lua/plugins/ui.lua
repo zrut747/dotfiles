@@ -1,47 +1,42 @@
 return {
   {
-    "stevearc/dressing.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      vim.notify = require("notify")
-    end,
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    keys = {
+      { "<leader>ff", "<cmd>lua Snacks.picker.files()<CR>", desc = "Find files" },
+      { "<leader>fg", "<cmd>lua Snacks.picker.grep()<CR>", desc = "Find in files(Grep)" },
+    },
+    opts = {
+      scroll = { enabled = true },
+      input = { enabled = true },
+      indent = { enabled = true },
+      notifier = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+      dashboard = {
+        preset = {
+          keys = {
+            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+            { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+            { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+            { icon = " ", key = "s", desc = "Settings", action = ":e $MYVIMRC | :cd %:h | :Neotree <CR>" },
+            { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+        },
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          { section = "startup" },
+        },
+      },
+    },
   },
   {
     "j-hui/fidget.nvim",
     event = "LspAttach",
     opts = {},
-  },
-  {
-    "goolord/alpha-nvim",
-    opts = function()
-      local dashboard = require("alpha.themes.dashboard")
-      -- Set menu
-      dashboard.section.buttons.val = {
-        dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("f", "󰈞  > Find file", ":cd $HOME/workspace | Telescope find_files<CR>"),
-        dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
-        dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:h | :Neotree <CR>"),
-        dashboard.button("l", "󰒲  > Lazy", ":Lazy<CR>"),
-        dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
-      }
-      return dashboard
-    end,
-    config = function(_, dashboard)
-      require("alpha").setup(dashboard.opts)
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "LazyVimStarted",
-        callback = function()
-          local stats = require("lazy").stats()
-          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
-          pcall(vim.cmd.AlphaRedraw)
-        end,
-      })
-    end,
   },
   {
     "utilyre/barbecue.nvim",
@@ -75,8 +70,18 @@ return {
     end,
   },
   {
-    "echasnovski/mini.bufremove",
+    "akinsho/bufferline.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "echasnovski/mini.bufremove",
+    },
+    lazy = false,
     keys = {
+      { "<C-h>", "<cmd>bprev<CR>", desc = "Move To Prev Buffer" },
+      { "<C-l>", "<cmd>bnext<CR>", desc = "Move To Next Buffer" },
+      { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", desc = "Remove Left Buffers" },
+      { "<leader>bl", "<cmd>BufferLineCloseRight<CR>", desc = "Remove Right Buffers" },
+      { "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", desc = "Remove Other Buffers" },
       {
         "<leader>bd",
         function()
@@ -91,20 +96,6 @@ return {
         end,
         desc = "Remove Buffer (Force)",
       },
-    },
-  },
-  {
-    "akinsho/bufferline.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    lazy = false,
-    keys = {
-      { "<C-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Move To Prev Buffer" },
-      { "<C-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Move To Next Buffer" },
-      { "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", desc = "Remove Left Buffers" },
-      { "<leader>bl", "<cmd>BufferLineCloseRight<CR>", desc = "Remove Right Buffers" },
-      { "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", desc = "Remove Other Buffers" },
     },
     opts = {
       options = {
@@ -129,25 +120,6 @@ return {
         },
       },
     },
-  },
-  {
-    "echasnovski/mini.indentscope",
-    event = "BufReadPre",
-    opts = function()
-      return {
-        symbol = "│",
-        options = { try_as_border = true },
-      }
-    end,
-    config = function(_, opts)
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-      require("mini.indentscope").setup(opts)
-    end,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -201,47 +173,6 @@ return {
     end,
     config = function(_, opts)
       require("lualine").setup(opts)
-    end,
-  },
-  {
-    "echasnovski/mini.animate",
-    opts = function()
-      -- don't use animate when scrolling with the mouse
-      local mouse_scrolled = false
-      for _, scroll in ipairs({ "Up", "Down" }) do
-        local key = "<ScrollWheel" .. scroll .. ">"
-        vim.keymap.set({ "", "i" }, key, function()
-          mouse_scrolled = true
-          return key
-        end, { expr = true })
-      end
-      local animate = require("mini.animate")
-      return {
-        cursor = {
-          enable = false,
-        },
-        scroll = {
-          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-          subscroll = animate.gen_subscroll.equal({
-            predicate = function(total_scroll)
-              if mouse_scrolled then
-                mouse_scrolled = false
-                return false
-              end
-              return total_scroll > 1
-            end,
-          }),
-        },
-        open = {
-          enable = false,
-        },
-        close = {
-          enable = false,
-        },
-      }
-    end,
-    config = function(_, opts)
-      require("mini.animate").setup(opts)
     end,
   },
 }

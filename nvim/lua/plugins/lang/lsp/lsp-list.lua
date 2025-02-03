@@ -10,7 +10,7 @@ return {
   "jsonls",
   "eslint",
   "yamlls",
-  -- "tsserver",
+  "ts_ls",
   "volar",
   "gopls"
 }

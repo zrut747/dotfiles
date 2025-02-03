@@ -79,6 +79,7 @@ opt.showmode = false
 -- 配置剪切板
 opt.clipboard = "unnamedplus"
 -- 配置代码折叠格式
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.foldcolumn = "1"
 opt.foldlevel = 99
+opt.cmdheight= 0
