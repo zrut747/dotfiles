@@ -1,5 +1,8 @@
 #! /bin/sh
 
+# 防止识别不到~/.local/bin下的可执行文件（debian下修改各种rc文件都没生效，所以这里硬编码解决）
+export PATH=$PATH:$HOME/.local/bin
+
 $HOME/.config/bspwm/autostart.sh
 
 # pgrep -x sxhkd > /dev/null || sxhkd &

@@ -26,3 +26,6 @@ alias tk="tmux kill-session -t"
 
 # nvim
 alias nv="nvim"
+
+# flatpak
+alias musicfox="flatpak run io.github.go_musicfox.go-musicfox"

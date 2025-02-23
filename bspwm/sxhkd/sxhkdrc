@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  ghostty
+  alacritty
 
 # program launcher
 super + @space
@@ -145,6 +145,8 @@ super + z
 #clipboard
 super + v
   rofi -modi "clipboard:greenclip print" -show clipboard
+super + u
+  greenclip daemon
 #obsidian
 super + n
   ~/softwares/obsidian/Obsidian-1.6.3.AppImage
