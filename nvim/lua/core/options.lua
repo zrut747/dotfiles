@@ -76,10 +76,23 @@ opt.pumheight = 10
 opt.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 opt.showmode = false
--- 配置剪切板
-opt.clipboard = "unnamedplus"
 -- 配置代码折叠格式
--- opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.foldcolumn = "1"
 opt.foldlevel = 99
-opt.cmdheight= 0
+
+-- 配置剪切板
+opt.clipboard = "unnamedplus"
+if vim.fn.has("wsl") == 1 then
+  vim.g.clipboard = {
+    name = "WslClipboard",
+    copy = {
+      ["+"] = "/mnt/c/windows/system32/clip.exe",
+      ["*"] = "/mnt/c/windows/system32/clip.exe",
+    },
+    paste = {
+      ["+"] = '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ["*"] = '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+end

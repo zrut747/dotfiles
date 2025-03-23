@@ -15,14 +15,3 @@ autocmd("BufEnter", {
     vim.opt.formatoptions:append("r")
   end,
 })
-
--- wsl 使用宿主机剪切板
-if vim.fn.has("wsl") == 1 then
-  autocmd("TextYankPost", {
-    group = myAutoGroup,
-    pattern = "*",
-    callback = function()
-      vim.fn.system("/mnt/c/windows/system32/clip.exe", vim.fn.getreg('"'))
-    end,
-  })
-end
