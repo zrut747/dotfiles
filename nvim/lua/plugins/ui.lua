@@ -175,4 +175,8 @@ return {
       require("lualine").setup(opts)
     end,
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" },
+  },
 }
