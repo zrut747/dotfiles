@@ -3,6 +3,7 @@ return {
   "lua_ls",
   "rust_analyzer",
   "pyright",
+  "ruff",
   "taplo",
   "html",
   "cssls",

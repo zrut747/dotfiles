@@ -84,14 +84,14 @@ opt.foldlevel = 99
 opt.clipboard = "unnamedplus"
 if vim.fn.has("wsl") == 1 then
   vim.g.clipboard = {
-    name = "WslClipboard",
+    name = "win32yank",
     copy = {
-      ["+"] = "/mnt/c/windows/system32/clip.exe",
-      ["*"] = "/mnt/c/windows/system32/clip.exe",
+      ["+"] = "win32yank -i --crlf",
+      ["*"] = "win32yank -i --crlf",
     },
     paste = {
-      ["+"] = '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-      ["*"] = '/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ["+"] = "win32yank -o --lf",
+      ["*"] = "win32yank -o --lf",
     },
     cache_enabled = 0,
   }
