@@ -1,5 +1,0 @@
-return {
-  "stylua",
-  "prettierd",
-  "gofumpt"
-}

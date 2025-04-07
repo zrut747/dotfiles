@@ -10,6 +10,7 @@ return {
     opts = {
       scroll = { enabled = true },
       input = { enabled = true },
+      picker = { enabled = true },
       indent = { enabled = true },
       notifier = { enabled = true },
       statuscolumn = { enabled = true },

@@ -96,3 +96,27 @@ if vim.fn.has("wsl") == 1 then
     cache_enabled = 0,
   }
 end
+
+-- lsp配置
+vim.lsp.enable({
+  -- 前端
+  "volar",
+  -- python
+  "ruff",
+  "pyright",
+  -- lua
+  "luals",
+})
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+    },
+  },
+  virtual_lines = {
+    current_line = true,
+  },
+})
