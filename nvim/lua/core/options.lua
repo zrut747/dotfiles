@@ -10,8 +10,6 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 -- 显示行号
 opt.number = true
--- 显示相对行号
--- vim.wo.relativenumber = true
 -- 高亮所在行
 opt.cursorline = true
 -- 显示左侧图标指示列
@@ -40,13 +38,8 @@ opt.incsearch = true
 opt.autoread = true
 -- 禁止折行
 opt.wrap = false
--- 光标在行首尾时<Left><Right>可以跳到下一行
-opt.whichwrap = "<,>,[,]"
 -- 允许隐藏被修改过的buffer
 opt.hidden = true
--- 鼠标支持
-opt.mouse = "a"
-opt.mousemoveevent = true
 -- 禁止创建备份文件
 opt.backup = false
 opt.writebackup = false
@@ -63,19 +56,8 @@ opt.splitright = true
 opt.termguicolors = true
 -- 是否显示不可见字符
 opt.list = true
--- 不可见字符的显示，这里只把空格显示为一个点
-opt.listchars:append("space:.")
-opt.listchars:append("tab:>-")
--- 补全增强
-opt.wildmenu = true
--- Dont' pass messages to |ins-completin menu|
-opt.shortmess:append("c")
--- 补全最多显示10行
-opt.pumheight = 10
--- 永远显示 tabline
-opt.showtabline = 2
--- 使用增强状态栏插件后不再需要 vim 的模式提示
-opt.showmode = false
+-- 不可见字符的显示
+opt.listchars = { space = ".", tab = ">-" }
 -- 配置代码折叠格式
 opt.foldcolumn = "1"
 opt.foldlevel = 99
@@ -96,27 +78,3 @@ if vim.fn.has("wsl") == 1 then
     cache_enabled = 0,
   }
 end
-
--- lsp配置
-vim.lsp.enable({
-  -- 前端
-  "volar",
-  -- python
-  "ruff",
-  "pyright",
-  -- lua
-  "luals",
-})
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
-    },
-  },
-  virtual_lines = {
-    current_line = true,
-  },
-})

@@ -21,11 +21,13 @@ return {
       spec = {
         {
           mode = { "n", "v" },
-          { "<leader>b", group = "buffer" },
-          { "<leader>q", group = "quit" },
-          { "<leader>c", group = "code" },
-          { "<leader>f", group = "file" },
-          { "<leader>x", group = "trouble" },
+          { "<leader>b", group = "Buffer" },
+          { "<leader>q", group = "Quit" },
+          { "<leader>l", group = "LSP" },
+          { "<leader>d", group = "Debug" },
+          { "<leader>f", group = "File" },
+          { "<leader>x", group = "Trouble" },
+          { "<leader>a", group = "AI" },
         },
       },
     },

@@ -11,6 +11,7 @@ return {
         "cpp",
         "html",
         "css",
+        "scss",
         "vim",
         "lua",
         "javascript",

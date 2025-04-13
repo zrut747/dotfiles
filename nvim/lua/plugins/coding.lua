@@ -68,13 +68,6 @@ return {
     end,
   },
   {
-    "folke/ts-comments.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("ts-comments").setup()
-    end,
-  },
-  {
     "folke/flash.nvim",
     event = "VeryLazy",
     keys = {

@@ -2,11 +2,11 @@ return {
   "stevearc/conform.nvim",
   keys = {
     {
-      "<space>f",
+      "<leader>lf",
       function()
         require("conform").format({ lsp_fallback = true, async = true })
       end,
-      desc = "Format Document",
+      desc = "Format",
     },
   },
   opts = function()

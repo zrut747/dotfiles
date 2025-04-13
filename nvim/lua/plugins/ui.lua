@@ -40,15 +40,6 @@ return {
     opts = {},
   },
   {
-    "utilyre/barbecue.nvim",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons",
-    },
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -98,34 +89,38 @@ return {
         desc = "Remove Buffer (Force)",
       },
     },
-    opts = {
-      options = {
-        -- 关闭 Tab 的命令
-        close_command = function(bufnum)
-          require("mini.bufremove").delete(bufnum, false)
-        end,
-        -- 侧边栏配置
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "File Explorer",
-            highlight = "Directory",
-            text_align = "left",
+    opts = function()
+      return {
+        options = {
+          -- 关闭 Tab 的命令
+          close_command = function(bufnum)
+            require("mini.bufremove").delete(bufnum, false)
+          end,
+          -- 侧边栏配置
+          offsets = {
+            {
+              filetype = "neo-tree",
+              text = "File Explorer",
+              highlight = "Directory",
+              text_align = "left",
+            },
+          },
+          -- 鼠标悬浮显示关闭按钮
+          hover = {
+            enabled = true,
+            delay = 100,
+            reveal = { "close" },
           },
         },
-        -- 鼠标悬浮显示关闭按钮
-        hover = {
-          enabled = true,
-          delay = 100,
-          reveal = { "close" },
-        },
-      },
-    },
+      }
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     opts = function()
-      local icons = require("core").icons
       return {
         options = {
           section_separators = { left = "", right = "" },
@@ -136,23 +131,8 @@ return {
         sections = {
           lualine_b = {
             "branch",
-            {
-              "diff",
-              symbols = {
-                added = icons.git.added,
-                modified = icons.git.modified,
-                removed = icons.git.removed,
-              },
-            },
-            {
-              "diagnostics",
-              symbols = {
-                error = icons.diagnostics.Error,
-                warn = icons.diagnostics.Warn,
-                info = icons.diagnostics.Info,
-                hint = icons.diagnostics.Hint,
-              },
-            },
+            "diff",
+            "diagnostics",
           },
           lualine_c = {
             "filename",
@@ -172,12 +152,21 @@ return {
         },
       }
     end,
-    config = function(_, opts)
-      require("lualine").setup(opts)
-    end,
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown", "codecompanion" },
+  },
+  {
+    "nvim-web-devicons",
+    opts = {
+      override = {
+        -- 自定义诊断图标
+        DiagnosticError = { icon = "󰅚", color = "#ff5370", name = "DiagnosticError" },
+        DiagnosticWarn = { icon = "󰀪", color = "#ff9e64", name = "DiagnosticWarn" },
+        DiagnosticInfo = { icon = "󰌶", color = "#89ddff", name = "DiagnosticInfo" },
+        DiagnosticHint = { icon = "", color = "#c3e88d", name = "DiagnosticHint" },
+      },
+    },
   },
 }
