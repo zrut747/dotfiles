@@ -22,4 +22,6 @@ vim.lsp.enable({
   "pyright",
   -- lua
   "luals",
+  -- typst
+  "prettypst",
 })

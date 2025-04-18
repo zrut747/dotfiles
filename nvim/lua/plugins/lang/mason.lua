@@ -1,8 +1,9 @@
-local tools = {
+local tools_registry = {
   lsp = {
     "clangd",
     "lua-language-server",
     "pyright",
+    "prettypst",
   },
   dap = {
     "debugpy",
@@ -23,12 +24,14 @@ return {
       local mason_registry = require("mason-registry")
 
       local function ensure_installed()
-        for category, tool_list in pairs(tools) do
-          for _, tool in ipairs(tool_list) do
+        for category, tools in pairs(tools_registry) do
+          for _, tool in ipairs(tools) do
             if not mason_registry.is_installed(tool) then
               local ok, pkg = pcall(mason_registry.get_package, tool)
               if ok then
                 pkg:install()
+              else
+                vim.notify(string.format("Package %s (%s) not found in registry", tool, category), vim.log.levels.WARN)
               end
             end
           end

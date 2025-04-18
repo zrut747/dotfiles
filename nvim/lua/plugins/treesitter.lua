@@ -23,7 +23,8 @@ return {
         "python",
         "markdown",
         "markdown_inline",
-        "vimdoc"
+        "vimdoc",
+        "typst",
       },
       -- 启用代码高亮功能
       highlight = {
