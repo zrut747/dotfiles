@@ -16,18 +16,36 @@ return {
         ["<C-f>"] = { "scroll_documentation_down", "fallback" },
         ["<A-.>"] = { "hide", "show", "fallback" },
       },
-      completion = {
-        documentation = { auto_show = true, auto_show_delay_ms = 200 },
-        list = {
-          selection = {
-            preselect = function(ctx)
-              return ctx.mode ~= "cmdline"
-            end,
+      cmdline = {
+        completion = {
+          menu = { auto_show = true },
+          list = {
+            selection = {
+              preselect = function(ctx)
+                return ctx.mode ~= "cmdline"
+              end,
+            },
           },
         },
       },
       signature = { enabled = true },
     },
+  },
+  {
+    "Exafunction/windsurf.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    event = "InsertEnter",
+    opts = {
+      enable_cmp_source = false,
+      virtual_text = {
+        enabled = true,
+      },
+    },
+    config = function(_, opts)
+      require("codeium").setup(opts)
+    end,
   },
   {
     "echasnovski/mini.pairs",

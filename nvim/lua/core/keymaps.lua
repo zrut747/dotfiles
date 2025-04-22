@@ -57,3 +57,5 @@ end, { desc = "Set conditional breakpoint" })
 -- AI
 map("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<CR>", {desc = "AI Chat"})
 map({"n", "v"}, "<leader>aa", "<cmd>CodeCompanionActions<CR>", {desc = "AI Actions"})
+-- Codeium
+map("i", "<A-p>", "<cmd> lua require('codeium.virtual_text').debounced_complete()<CR>", { desc = "Codeium" })
