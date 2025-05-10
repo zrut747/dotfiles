@@ -22,12 +22,6 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone -q --depth 1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# source alacritty.yml
-if [ ! -d "$HOME/.config/alacritty" ]; then
-  mkdir $HOME/.config/alacritty
-fi
-cp -f $DOTDIR/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-
 # source lazygit.yml
 if [ ! -d "$HOME/.config/lazygit" ]; then
   mkdir $HOME/.config/lazygit

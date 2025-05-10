@@ -17,7 +17,7 @@ local tools_registry = {
 
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     event = "VeryLazy",
     config = function()
       require("mason").setup()

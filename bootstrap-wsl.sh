@@ -8,5 +8,4 @@ if [[ $(uname -r) =~ WSL2 ]]; then
   fi
   sudo cp -r $DOTDIR/wsl/wsl.conf /etc
   sudo cp -r $DOTDIR/wsl/init.sh /etc/wsl
-  sudo cp -r $DOTDIR/wsl/WSLInterop.conf /usr/lib/binfmt.d
 fi
