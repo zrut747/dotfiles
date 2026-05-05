@@ -10,26 +10,21 @@ local function get_default_config()
   }
 end
 
+--- 使用 vim.pack 安装 lazy.nvim（Neovim 0.12 内置的包管理接口）
 local function setup_lazy()
-  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-  if not vim.uv.fs_stat(lazypath) then
-    vim.notify("正在安装lazy.nvim，请稍后...")
-    local success = vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable",
-      lazypath,
-    })
-    if success then
-      vim.notify("lazy.nvim 安装完毕")
-    else
-      vim.notify("lazy.nvim 安装失败", vim.log.levels.ERROR)
-      return false
-    end
+  vim.pack.add({
+    {
+      src = "https://github.com/folke/lazy.nvim.git",
+      name = "lazy.nvim",
+      version = "stable",
+    },
+  })
+
+  local ok, lazy = pcall(require, "lazy")
+  if not ok then
+    vim.notify("lazy.nvim 加载失败", vim.log.levels.ERROR)
+    return false
   end
-  vim.opt.rtp:prepend(lazypath)
   return true
 end
 
@@ -41,7 +36,7 @@ M.setup = function()
   require("core.keymaps")
   require("core.autocmds")
 
-  -- 插件管理
+  -- 插件管理（通过 vim.pack 安装/加载 lazy.nvim）
   if not setup_lazy() then
     return
   end
@@ -61,8 +56,9 @@ M.setup = function()
     vim.cmd.colorscheme(M.colorscheme)
   end
 
-  -- LSP配置
+  -- LSP 配置
   require("core.lsp")
 end
 
 return M
+

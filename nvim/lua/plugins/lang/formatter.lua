@@ -20,6 +20,7 @@ return {
         vue = { "prettierd" },
         yaml = { "prettierd" },
         go = { "gofumpt" },
+        markdown = { "prettierd" },
       },
     }
   end,

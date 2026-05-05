@@ -154,10 +154,6 @@ return {
     end,
   },
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "codecompanion" },
-  },
-  {
     "nvim-web-devicons",
     opts = {
       override = {

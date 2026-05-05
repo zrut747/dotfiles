@@ -12,6 +12,7 @@ local tools_registry = {
     "stylua",
     "prettierd",
     "gofumpt",
+
   },
 }
 
