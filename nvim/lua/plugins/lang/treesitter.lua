@@ -1,13 +1,11 @@
 return {
   {
-    "arborist-ts/arborist.nvim",
-    event = "VeryLazy",
-    opts = {
-      update_cadence = "weekly",
-      prefer_wasm = false,
-      auto_install = true,
-      install_popular = false,
-      ensure_installed = {
+    "IlyasYOY/ts-pack.nvim",
+    config = function()
+      local ts_pack = require('ts-pack')
+      local library = require('ts-pack.library')
+
+      ts_pack.add(library.select({
         "c",
         "cpp",
         "html",
@@ -26,10 +24,7 @@ return {
         "markdown_inline",
         "vimdoc",
         "yaml",
-      }
-    },
-    config = function(_, opts)
-      require("arborist").setup(opts)
+      }), { async = true })
     end,
-  }
+  },
 }

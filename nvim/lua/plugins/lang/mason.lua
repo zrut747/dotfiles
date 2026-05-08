@@ -4,6 +4,8 @@ local tools_registry = {
     "lua-language-server",
     "pyright",
     "prettypst",
+    -- "vtsls",
+    -- "vue-language-server",
   },
   dap = {
     "debugpy",

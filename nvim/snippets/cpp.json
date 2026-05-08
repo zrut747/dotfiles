@@ -1,7 +1,7 @@
 {
   "solve": {
-    "prefix": ["solve", "template"],
-    "description": "create a template to solve problem",
+    "prefix": "solve",
+    "description": "Competitive programming template",
     "body": [
       "#include<bits/stdc++.h>",
       "using namespace std;",
