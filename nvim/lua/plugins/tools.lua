@@ -16,7 +16,7 @@ return {
     event = "VeryLazy",
     opts = {
       icons = {
-        mappings = false
+        mappings = false,
       },
       spec = {
         {
