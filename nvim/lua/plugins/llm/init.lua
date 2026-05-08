@@ -13,20 +13,16 @@ return {
       require("codecompanion").setup({
         adapters = {
           deepseek = function()
-            return require("codecompanion.adapters").extend("deepseek", {
+            return require("codecompanion.adapters").extend("openai", {
+              url = "https://api.deepseek.com/chat/completions",
               name = "deepseek",
               env = {
-                api_key = function()
-                  return os.getenv("DEEPSEEK_API_KEY")
-                end,
+                api_key = "DEEPSEEK_API_KEY",
               },
               schema = {
                 model = {
                   default = "deepseek-v4-flash",
-                  choices = {
-                    ["deepseek-v4-flash"] = { opts = { can_reason = true } },
-                    ["deepseek-v4-pro"] = { opts = { can_reason = true } }
-                  },
+                  choices = { "deepseek-v4-flash", "deepseek-v4-pro" }
                 },
               },
             })
@@ -44,6 +40,6 @@ return {
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "codecompanion" }, -- 关键：指定在 codecompanion 窗口中启用
+    ft = { "markdown", "codecompanion" },
   }
 }
