@@ -17,11 +17,14 @@ vim.diagnostic.config({
 vim.lsp.enable({
   -- 前端
   "volar",
+  "vtsls",
   -- python
   "ruff",
-  "pyright",
+  "ty",
   -- lua
   "luals",
   -- typst
   "prettypst",
+  -- rust,
+  "rust_analyzer",
 })

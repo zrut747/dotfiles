@@ -1,11 +1,12 @@
 local tools_registry = {
   lsp = {
-    "clangd",
-    "lua-language-server",
-    "pyright",
-    "prettypst",
+    -- "clangd",
+    -- "lua-language-server",
+    "ty",
+    -- "prettypst",
     -- "vtsls",
     -- "vue-language-server",
+    "rust-analyzer",
   },
   dap = {
     "debugpy",
