@@ -54,7 +54,7 @@ return {
             end_point = "https://api.deepseek.com/beta/completions",
             api_key = "DEEPSEEK_API_KEY",
             name = "deepseek",
-            model = "deepseek-v4-flash",
+            model = "deepseek-v4-pro",
             optional = {
               max_tokens = 256,
               top_p = 0.9,
@@ -67,11 +67,19 @@ return {
           auto_trigger_ft = {},
           keymap = {
             next = "<A-p>", -- 手动触发/显示下一个建议
-            accept = "<Tab>", -- 接受全部补全内容
+            -- accept = "<Tab>", -- 接受全部补全内容
             dismiss = "<A-e>", -- 取消补全
           },
         },
       })
+      local function minuet_accept()
+        if require("minuet.virtualtext").action.is_visible() then
+            return require('minuet.virtualtext').action.accept()
+        end
+        return "<Tab>"
+      end
+
+      vim.keymap.set('i', '<Tab>', minuet_accept, { expr = true, desc = 'Minuet accept' })
     end,
   },
 }
